@@ -26,4 +26,8 @@ config.plugins = config.plugins.concat([
   new webpack.HotModuleReplacementPlugin()
 ]);
 
+config.watchOptions = {
+  aggregateTimeout: 500,
+};
+
 module.exports = config;

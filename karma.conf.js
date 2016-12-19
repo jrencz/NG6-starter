@@ -46,6 +46,10 @@ module.exports = function (config) {
     },
 
     webpackServer: {
+      // @see https://webpack.js.org/configuration/watch/#watchoptions
+      watchOptions: {
+        aggregateTimeout: 500,
+      },
       noInfo: true // prevent console spamming when running in Karma!
     },
 
