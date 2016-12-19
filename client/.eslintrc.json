@@ -1,0 +1,11 @@
+{
+  "plugins": [
+    "angular"
+  ],
+
+  "env": {
+    "node": false,
+    "browser": true,
+    "angular/angular": true
+  }
+}

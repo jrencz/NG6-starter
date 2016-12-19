@@ -8,6 +8,16 @@ config.output = {
   path: path.resolve(__dirname, 'client')
 };
 
+const isJsLoader = ({loader}) => loader.includes('babel');
+
+// Add eslint to *.js loaders.
+config.module.loaders = config.module.loaders.map(loader => isJsLoader(loader) ?
+  Object.assign(loader, {
+    loader: `${ loader.loader }!eslint`,
+  }) :
+  loader
+);
+
 config.plugins = config.plugins.concat([
 
   // Adds webpack HMR support. It act's like livereload,

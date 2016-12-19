@@ -28,9 +28,15 @@ module.exports = function (config) {
 
     webpack: {
       devtool: 'inline-source-map',
+      eslint: {
+        cache: true,
+        // Note: it will exclude the failing spec file entirely. Others will run.
+        failOnError: true,
+        configFile: './.eslintrc-tests.json',
+      },
       module: {
         loaders: [
-          { test: /\.js/, exclude: [/app\/lib/, /node_modules/], loader: 'babel' },
+          { test: /\.js/, exclude: [/app\/lib/, /node_modules/], loader: 'babel!eslint' },
           { test: /\.html$/, loader: 'raw' },
           { test: /\.(scss|sass)$/, loader: 'style!css!sass' },
           { test: /\.css$/, loader: 'style!css' }
