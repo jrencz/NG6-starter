@@ -15,6 +15,7 @@ module.exports = function (config) {
 
     plugins: [
       require("karma-chai"),
+      require("karma-longest-reporter"),
       require("karma-chrome-launcher"),
       require("karma-mocha"),
       require("karma-mocha-reporter"),
@@ -49,7 +50,10 @@ module.exports = function (config) {
     },
 
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['mocha'],
+    reporters: [
+      'mocha',
+      'longest',
+    ],
 
     // web server port
     port: 9876,
