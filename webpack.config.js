@@ -1,6 +1,7 @@
 var path    = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var StylelintWebpackPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
   devtool: 'source-map',
@@ -21,6 +22,12 @@ module.exports = {
       template: 'client/index.html',
       inject: 'body',
       hash: true
+    }),
+
+    new StylelintWebpackPlugin({
+      files: [
+        'client/**/*.s?(a|c)ss',
+      ],
     }),
 
     // Automatically move all modules defined outside of application directory to vendor bundle.
