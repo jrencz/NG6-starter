@@ -33,7 +33,7 @@ module.exports = function (config) {
         cache: true,
         // Note: it will exclude the failing spec file entirely. Others will run.
         failOnError: true,
-        configFile: './.eslintrc-tests.json',
+        configFile: './.eslintrc-tests.js',
       },
       module: {
         loaders: [
