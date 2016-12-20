@@ -47,6 +47,7 @@
     "ng-annotate-loader": "0.0.10",
     "node-libs-browser": "^0.5.0",
     "node-sass": "^3.13.0",
+    "npm-check-updates": "^2.8.8",
     "raw-loader": "^0.5.1",
     "run-sequence": "^1.1.0",
     "sass-loader": "^4.0.2",
@@ -69,6 +70,8 @@
     "servetest": "karma start --auto-watch --no-single-run --reporters progress",
     "watch": "./node_modules/.bin/gulp serve",
     "stylelint": "./scripts/stylelint",
+    "checkupdates": "./scripts/checkupdates",
+    "updatedeps": "./scripts/updatedeps",
     "webpack": "./node_modules/.bin/gulp webpack"
   },
   "keywords": [

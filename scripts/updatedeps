@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+rm -f npm-shrinkwrap.json &&
+echo "[updatedeps] Old lock removed" &&
+echo "[updatedeps] Checking updates" &&
+./node_modules/.bin/ncu -u &&
+echo "[updatedeps] Installing updates" &&
+npm install &&
+echo "[updatedeps] Cleanup" &&
+npm prune &&
+npm dedupe &&
+echo "[updatedeps] Creating new lock" &&
+npm shrinkwrap --dev &&
+echo "[updatedeps] Dependencies updated successfully";
