@@ -28,7 +28,7 @@
     "eslint-plugin-angular": "^1.5.0",
     "eslint-plugin-jasmine": "^2.2.0",
     "fs-walk": "0.0.1",
-    "gulp": "^3.9.1",
+    "gulp": "github:gulpjs/gulp#4.0",
     "gulp-rename": "^1.2.2",
     "gulp-template": "^3.0.0",
     "gulp-util": "^3.0.7",
@@ -61,15 +61,15 @@
     "yargs": "^3.9.0"
   },
   "scripts": {
-    "build": "gulp webpack",
-    "component": "gulp component",
-    "serve": "gulp serve",
-    "start": "gulp serve",
+    "build": "./node_modules/.bin/gulp webpack",
+    "component": "./node_modules/.bin/gulp component",
+    "serve": "./node_modules/.bin/gulp serve",
+    "start": "./node_modules/.bin/gulp serve",
     "test": "karma start",
     "servetest": "karma start --auto-watch --no-single-run --reporters progress",
-    "watch": "gulp serve",
+    "watch": "./node_modules/.bin/gulp serve",
     "stylelint": "./scripts/stylelint",
-    "webpack": "gulp webpack"
+    "webpack": "./node_modules/.bin/gulp webpack"
   },
   "keywords": [
     "angular",
