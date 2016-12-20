@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+echo "Browsers we support:";
+echo "";
+
+# for some reason browserslist CLI has no stats option
+# this is a hacky way of providing stats.
+# regular postcss autoprefixer uses the same path. See `.postcssrc`
+export BROWSERSLIST_STATS=./meta/browserslist-stats.json;
+./node_modules/.bin/browserslist

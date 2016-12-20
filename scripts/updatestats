@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+echo "[refreshstats] Not implemented. Update ./meta/browserslist-stats.json manually";

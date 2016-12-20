@@ -1,0 +1,20 @@
+# TODO: automate fetching stats https://github.com/ai/browserslist#custom-usage-data
+# See: https://github.com/ai/browserslist/issues/71
+# Right now we have manually compiled report in ./meta/browserslist-stats.json
+# and it's used for autoprefixer
+> 0.5% in my stats
+
+> 2% in PL
+
+# Exceptions:
+#
+# Always describe exceptions!
+#
+# Always measure how much more the the compiled stylesheet weights
+# when exception is added (you may use `du` for that) and check if
+# exception is justified
+#
+# Always run `browserslist` cli tool (npm i -g browserslist-cli) to
+# see if declaration you add results in correct resolution
+
+

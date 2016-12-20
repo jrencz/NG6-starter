@@ -10,6 +10,7 @@
   },
   "devDependencies": {
     "angular-mocks": "^1.5.0",
+    "autoprefixer": "^6.5.4",
     "babel-core": "^6.7.7",
     "babel-loader": "^6.2.4",
     "babel-plugin-transform-runtime": "^6.7.5",
@@ -48,6 +49,8 @@
     "node-libs-browser": "^2.0.0",
     "node-sass": "^4.1.1",
     "npm-check-updates": "^2.8.8",
+    "postcss-load-config": "^1.0.0",
+    "postcss-loader": "^1.2.1",
     "raw-loader": "^0.5.1",
     "run-sequence": "^1.1.0",
     "sass-loader": "^4.0.2",
@@ -72,6 +75,8 @@
     "stylelint": "./scripts/stylelint",
     "checkupdates": "./scripts/checkupdates",
     "updatedeps": "./scripts/updatedeps",
+    "browserslist": "./scripts/browserslist",
+    "updatestats": "./scripts/updatestats",
     "webpack": "./node_modules/.bin/gulp webpack"
   },
   "keywords": [
