@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -e
+
+# This is a dummy placeholder for a service fetching real data for components.
+
+COMPONENTS=$1
+DEST_FILE=$2
+
+echo "[gettemplateconstants] Fetching content for components"
+echo "Detected components:"
+echo $COMPONENTS;
+
+mkdir -p "$(dirname "$DEST_FILE")" && rm -f "$DEST_FILE" && touch "$DEST_FILE"
+echo "{\"about\": \"about from outside works! And we can use ng bindings here: {{ \$ctrl.name }}\", \"home\": \"home from outside works!\", \"navbar\": \"navbar from outside works!\"}" >> $DEST_FILE

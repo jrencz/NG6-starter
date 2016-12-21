@@ -1,4 +1,4 @@
-import template from './about.html';
+import template from './about.twig';
 import controller from './about.controller';
 import './about.scss';
 

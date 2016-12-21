@@ -1,4 +1,4 @@
-import template from './navbar.html';
+import template from './navbar.twig';
 import controller from './navbar.controller';
 import './navbar.scss';
 
