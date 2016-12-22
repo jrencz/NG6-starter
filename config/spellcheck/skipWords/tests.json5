@@ -1,6 +1,9 @@
 [
+  // Placeholder strings
   "foo",
   "bar",
   "baz",
-  "quux"
+  "quux",
+  // Chai api
+  "eq",
 ]
