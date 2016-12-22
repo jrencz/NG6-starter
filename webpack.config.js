@@ -16,6 +16,13 @@ const srcPath = require('./config/srcPath');
 module.exports = Object.assign({
   devtool: 'source-map',
   entry: {},
+  // @see https://webpack.github.io/docs/resolving.html#aliasing
+  // This is a way of using bundled versions of reusable, NPM-installed, standalone components in drop-in bundled form.
+  // resolve: {
+  //   alias: {
+  //     "test-standalone-component": require.resolve('test-standalone-component').replace('.js', '-bundled.js')
+  //   }
+  // },
   plugins: [
     // Injects bundles in your index.html instead of wiring all manually.
     // It also adds hash to all injected assets so we don't have problems

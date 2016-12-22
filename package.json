@@ -6,6 +6,7 @@
   "dependencies": {
     "angular": "^1.5.0",
     "angular-ui-router": "^1.0.0-beta.1",
+    "test-standalone-component": "git@github.com:jrencz/webpack-library-starter.git#stand-alone-component-test",
     "normalize.css": "^5.0.0"
   },
   "devDependencies": {

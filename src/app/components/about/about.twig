@@ -2,4 +2,6 @@
 <h1>{% verbatim %}{{ $ctrl.name }}{% endverbatim %}</h1>
 <section>
   About us.... {{ about }}
+  <input ng-model="$ctrl.testName">
+  <test-standalone-component name="$ctrl.testName" on-clicked="$ctrl.externalComponentClicked()"></test-standalone-component>
 </section>
