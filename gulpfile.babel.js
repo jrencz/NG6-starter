@@ -14,15 +14,15 @@ import webpackHotMiddleware from 'webpack-hot-middleware';
 import colorsSupported      from 'supports-color';
 import historyApiFallback   from 'connect-history-api-fallback';
 
-const root = 'client';
+import srcPath from './config/srcPath';
 
 // helper method for resolving paths
 const resolveToApp = (glob = '') => {
-  return path.join(root, 'app', glob); // app/{glob}
+  return path.join(srcPath, 'app', glob); // app/{glob}
 };
 
 const resolveToComponents = (glob = '') => {
-  return path.join(root, 'app/components', glob); // app/components/{glob}
+  return path.join(srcPath, 'app/components', glob); // app/components/{glob}
 };
 
 // map of all paths
@@ -31,13 +31,13 @@ const paths = {
   scss: resolveToApp('**/*.scss'), // stylesheets
   html: [
     resolveToApp('**/*.html'),
-    path.join(root, 'index.html')
+    path.join(srcPath, 'index.html')
   ],
   entry: [
     'babel-polyfill',
-    path.join(__dirname, root, 'app/app.js')
+    path.join(__dirname, srcPath, 'app/app.js')
   ],
-  output: root,
+  output: srcPath,
   blankTemplates: path.join(__dirname, 'generator', 'component/**/*.**'),
   dest: path.join(__dirname, 'dist')
 };
@@ -85,7 +85,7 @@ gulp.task('serve', () => {
   serve({
     port: process.env.PORT || 3000,
     open: false,
-    server: {baseDir: root},
+    server: {baseDir: srcPath},
     middleware: [
       historyApiFallback(),
       webpackDevMiddleware(compiler, {

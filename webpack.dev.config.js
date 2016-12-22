@@ -1,11 +1,12 @@
 var webpack = require('webpack');
 var path    = require('path');
 var config  = require('./webpack.config');
+const srcPath  = require('./config/srcPath');
 
 config.output = {
   filename: '[name].bundle.js',
   publicPath: '/',
-  path: path.resolve(__dirname, 'client')
+  path: path.resolve(__dirname, srcPath)
 };
 
 const isJsLoader = ({loader}) => loader.includes('babel');

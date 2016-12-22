@@ -11,6 +11,8 @@ const {
   path: twigPreTemplatesContextFilePath
 } = require('./config/templateconstants/config');
 
+const srcPath = require('./config/srcPath');
+
 module.exports = Object.assign({
   devtool: 'source-map',
   entry: {},
@@ -19,14 +21,14 @@ module.exports = Object.assign({
     // It also adds hash to all injected assets so we don't have problems
     // with cache purging during deployment.
     new HtmlWebpackPlugin({
-      template: '!!twig!client/index.twig',
+      template: `!!twig!${ srcPath }/index.twig`,
       inject: 'body',
       hash: true
     }),
 
     new StylelintWebpackPlugin({
       files: [
-        'client/**/*.s?(a|c)ss',
+        `${ srcPath }/**/*.s?(a|c)ss`,
       ],
     }),
 
@@ -49,7 +51,7 @@ module.exports = Object.assign({
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       minChunks: function (module, count) {
-        return module.resource && module.resource.indexOf(path.resolve(__dirname, 'client')) === -1;
+        return module.resource && module.resource.indexOf(path.resolve(__dirname, srcPath)) === -1;
       }
     })
   ]

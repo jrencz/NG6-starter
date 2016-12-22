@@ -74,7 +74,7 @@ footer). Also characteristic of a component is that it harnesses its own stylesh
 services, and specs. This encapsulation allows us the comfort of isolation and structural locality. Here's how it 
 looks:
 ```
-client
+src
 ⋅⋅app/
 ⋅⋅⋅⋅app.js * app entry file
 ⋅⋅⋅⋅app.html * app template
@@ -91,7 +91,7 @@ client
 ```
 
 ## Testing Setup
-All tests are also written in ES6. We use Webpack to take care of the logistics of getting those files to run in the various browsers, just like with our client files. This is our testing stack:
+All tests are also written in ES6. We use Webpack to take care of the logistics of getting those files to run in the various browsers, just like with our source files. This is our testing stack:
 * Karma
 * Webpack + Babel
 * Mocha
@@ -117,7 +117,7 @@ Here's a list of available tasks:
 * `npm run build`
   * runs Webpack, which will transpile, concatenate, and compress (collectively, "bundle") all assets and modules into `dist/bundle.js`. It also prepares `index.html` to be used as application entry point, links assets and created dist version of our application.
 * `npm run serve`
-  * starts a dev server via `webpack-dev-server`, serving the client folder.
+  * starts a dev server via `webpack-dev-server`, serving the src folder.
 * `npm run watch`
   * alias of `serve`
 * `npm start` (which is the default task that runs when typing `gulp` without providing an argument)
@@ -156,11 +156,11 @@ To generate a component, run `npm run component -- --name componentName`.
 
 The parameter following the `--name` flag is the name of the component to be created. Ensure that it is unique or it will overwrite the preexisting identically-named component.
 
-The component will be created, by default, inside `client/app/components`. To change this, apply the `--parent` flag, followed by a path relative to `client/app/components/`.
+The component will be created, by default, inside `src/app/components`. To change this, apply the `--parent` flag, followed by a path relative to `src/app/components/`.
 
-For example, running `npm run component -- --name signup --parent auth` will create a `signup` component at `client/app/components/auth/signup`.  
+For example, running `npm run component -- --name signup --parent auth` will create a `signup` component at `src/app/components/auth/signup`.  
 
-Running `npm run component -- --name footer --parent ../common` creates a `footer` component at `client/app/common/footer`.  
+Running `npm run component -- --name footer --parent ../common` creates a `footer` component at `src/app/common/footer`.  
 
 Because the argument to `--name` applies to the folder name **and** the actual component name, make sure to camelcase the component names.
 
