@@ -2,7 +2,7 @@ import template from './navbar.twig';
 import controller from './navbar.controller';
 import './navbar.scss';
 
-let navbarComponent = {
+const navbarComponent = {
   restrict: 'E',
   bindings: {},
   template,

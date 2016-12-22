@@ -2,7 +2,7 @@ import template from './hero.html';
 import controller from './hero.controller';
 import './hero.scss';
 
-let heroComponent = {
+const heroComponent = {
   restrict: 'E',
   bindings: {},
   template,

@@ -1,10 +1,11 @@
 import angular from 'angular';
 import UserFactory from './user.factory';
 
-let userModule = angular.module('user', [])
+const userModule = angular
+  .module('user', [
+  ])
 
-.factory('User', UserFactory)
-  
-.name;
+  .factory('User', UserFactory)
+;
 
-export default userModule;
+export default userModule.name;
