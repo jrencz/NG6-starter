@@ -1,3 +1,5 @@
+const commonWebpackLoadersConfig = require('./config/webpack/commonLoaders');
+
 module.exports = function (config) {
   config.set({
     // base path used to resolve all patterns
@@ -27,7 +29,7 @@ module.exports = function (config) {
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: { 'spec.bundle.js': ['webpack', 'sourcemap'] },
 
-    webpack: {
+    webpack: Object.assign({
       devtool: 'inline-source-map',
       eslint: {
         cache: true,
@@ -35,15 +37,7 @@ module.exports = function (config) {
         failOnError: true,
         configFile: './.eslintrc-tests.js',
       },
-      module: {
-        loaders: [
-          { test: /\.js/, exclude: [/app\/lib/, /node_modules/], loader: 'babel!eslint' },
-          { test: /\.html$/, loader: 'raw' },
-          { test: /\.(scss|sass)$/, loader: 'style!css!sass' },
-          { test: /\.css$/, loader: 'style!css' }
-        ]
-      }
-    },
+    }, commonWebpackLoadersConfig),
 
     webpackServer: {
       // @see https://webpack.js.org/configuration/watch/#watchoptions

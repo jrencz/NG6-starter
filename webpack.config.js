@@ -1,29 +1,19 @@
+require('json5/lib/require');
+
 var path    = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var StylelintWebpackPlugin = require('stylelint-webpack-plugin');
 const WebpackShellPlugin = require('webpack-shell-plugin');
 
-const twigPreTemplatesContextFilePath = './.tmp/templateconstants.json';
+const commonWebpackLoadersConfig = require('./config/webpack/commonLoaders');
+const {
+  path: twigPreTemplatesContextFilePath
+} = require('./config/templateconstants/config');
 
-module.exports = {
+module.exports = Object.assign({
   devtool: 'source-map',
   entry: {},
-  module: {
-    loaders: [
-       { test: /\.js$/, exclude: [/app\/lib/, /node_modules/], loader: 'ng-annotate!babel' },
-       { test: /\.html$/, loader: 'raw' },
-       // Compile static files using twig. This is a static compilation
-       { test: /\.twig/, exclude: [/app/], loader: 'twig' },
-       // Use precompiled template for twig files in components
-       { test: /\.twig/, include: [/app/], loader: path.resolve(__dirname, './lib/webpack/loader/twig-render-loader') },
-       { test: /\.(scss|sass)$/, loader: 'style!css?importLoaders=1!postcss!sass' },
-       { test: /\.css$/, loader: 'style!css' }
-    ]
-  },
-  twigRenderLoader: {
-    contextFile: twigPreTemplatesContextFilePath,
-  },
   plugins: [
     // Injects bundles in your index.html instead of wiring all manually.
     // It also adds hash to all injected assets so we don't have problems
@@ -63,4 +53,4 @@ module.exports = {
       }
     })
   ]
-};
+}, commonWebpackLoadersConfig);
