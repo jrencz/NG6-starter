@@ -1,6 +1,6 @@
 # TODO: automate fetching stats https://github.com/ai/browserslist#custom-usage-data
 # See: https://github.com/ai/browserslist/issues/71
-# Right now we have manually compiled report in ./meta/browserslist-stats.json
+# Right now we have manually compiled report in a Gist (see package.json "stats" entry)
 # and it's used for autoprefixer
 > 0.5% in my stats
 

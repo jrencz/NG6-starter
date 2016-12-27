@@ -59,6 +59,7 @@
     "raw-loader": "^0.5.1",
     "run-sequence": "^1.1.0",
     "sass-loader": "^4.0.2",
+    "stats": "gist:60a2135fca54e6cfa4b367fbb7d39639",
     "style-loader": "^0.13.1",
     "stylelint-config-standard": "^15.0.1",
     "stylelint-scss": "^1.4.1",
@@ -83,7 +84,6 @@
     "checkupdates": "./scripts/checkupdates",
     "updatedeps": "./scripts/updatedeps",
     "browserslist": "./scripts/browserslist",
-    "updatestats": "./scripts/updatestats",
     "webpack": "./node_modules/.bin/gulp webpack"
   },
   "keywords": [

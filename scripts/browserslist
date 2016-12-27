@@ -6,5 +6,5 @@ echo "";
 # for some reason browserslist CLI has no stats option
 # this is a hacky way of providing stats.
 # regular postcss autoprefixer uses the same path. See `.postcssrc`
-export BROWSERSLIST_STATS=./meta/browserslist-stats.json;
+export BROWSERSLIST_STATS=./node_modules/stats/stats.json;
 ./node_modules/.bin/browserslist

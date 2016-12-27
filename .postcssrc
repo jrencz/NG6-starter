@@ -1,7 +1,7 @@
 {
   "plugins": {
     "autoprefixer": {
-      "stats": "./meta/browserslist-stats.json"
+      "stats": "./node_modules/stats/stats.json"
     }
   }
 }
