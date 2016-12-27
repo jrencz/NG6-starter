@@ -24,6 +24,7 @@
     "babel-runtime": "^6.6.1",
     "browser-sync": "^2.11.1",
     "chai": "^3.4.0",
+    "colors": "^1.1.2",
     "connect-history-api-fallback": "^1.1.0",
     "css-loader": "^0.26.1",
     "del": "^2.2.0",
@@ -32,6 +33,7 @@
     "eslint-plugin-angular": "^1.5.0",
     "eslint-plugin-jasmine": "^2.2.0",
     "eslint-plugin-spellcheck": "0.0.8",
+    "fs-utils": "^0.7.0",
     "fs-walk": "0.0.1",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-rename": "^1.2.2",
@@ -73,6 +75,8 @@
     "yargs": "^6.5.0"
   },
   "scripts": {
+    "locallink": "./scripts/localLink.js",
+    "postinstall": "npm run locallink",
     "build": "./node_modules/.bin/gulp webpack",
     "component": "./node_modules/.bin/gulp component",
     "serve": "./node_modules/.bin/gulp serve",
@@ -85,6 +89,9 @@
     "updatedeps": "./scripts/updatedeps",
     "browserslist": "./scripts/browserslist",
     "webpack": "./node_modules/.bin/gulp webpack"
+  },
+  "localLink": {
+    "test-standalone-component": "../webpack-library-starter"
   },
   "keywords": [
     "angular",

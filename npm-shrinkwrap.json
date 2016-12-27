@@ -1425,7 +1425,7 @@
     },
     "colors": {
       "version": "1.1.2",
-      "from": "colors@>=1.1.2 <1.2.0",
+      "from": "https://registry.npmjs.org/colors/-/colors-1.1.2.tgz",
       "resolved": "https://registry.npmjs.org/colors/-/colors-1.1.2.tgz",
       "dev": true
     },
@@ -3700,6 +3700,11 @@
       "dev": true,
       "optional": true
     },
+    "jquery": {
+      "version": "3.1.1",
+      "from": "jquery@3.1.1",
+      "resolved": "https://registry.npmjs.org/jquery/-/jquery-3.1.1.tgz"
+    },
     "js-base64": {
       "version": "2.1.9",
       "from": "js-base64@>=2.1.9 <3.0.0",
@@ -4522,6 +4527,11 @@
       "from": "lodash.mergewith@>=4.6.0 <5.0.0",
       "resolved": "https://registry.npmjs.org/lodash.mergewith/-/lodash.mergewith-4.6.0.tgz",
       "dev": true
+    },
+    "lodash.noop": {
+      "version": "3.0.1",
+      "from": "lodash.noop@3.0.1",
+      "resolved": "https://registry.npmjs.org/lodash.noop/-/lodash.noop-3.0.1.tgz"
     },
     "lodash.pick": {
       "version": "4.4.0",
@@ -8164,6 +8174,11 @@
           "optional": true
         }
       }
+    },
+    "test-standalone-component": {
+      "version": "0.0.0",
+      "from": "git+ssh://git@github.com/jrencz/webpack-library-starter.git#13e8c9219c61b75879dac86ada49fef2c373a780",
+      "resolved": "git+ssh://git@github.com/jrencz/webpack-library-starter.git#13e8c9219c61b75879dac86ada49fef2c373a780"
     },
     "text-table": {
       "version": "0.2.0",
