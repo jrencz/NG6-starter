@@ -78,18 +78,18 @@
   "scripts": {
     "locallink": "./scripts/localLink.js",
     "postinstall": "npm run locallink",
-    "build": "./node_modules/.bin/gulp webpack",
-    "component": "./node_modules/.bin/gulp component",
-    "serve": "./node_modules/.bin/gulp serve",
-    "start": "./node_modules/.bin/gulp serve",
-    "test": "./node_modules/.bin/karma start",
-    "servetest": "./node_modules/.bin/karma start --auto-watch --no-single-run --reporters progress",
-    "watch": "./node_modules/.bin/gulp serve",
+    "build": "gulp webpack",
+    "component": "gulp component",
+    "serve": "gulp serve",
+    "start": "gulp serve & npm run localstart",
+    "test": "karma start",
+    "servetest": "karma start --auto-watch --no-single-run --reporters progress",
+    "watch": "gulp serve",
     "stylelint": "./scripts/stylelint",
     "checkupdates": "./scripts/checkupdates",
     "updatedeps": "./scripts/updatedeps",
     "browserslist": "./scripts/browserslist",
-    "webpack": "./node_modules/.bin/gulp webpack"
+    "webpack": "gulp webpack"
   },
   "localLink": {
     "test-theme": "../test-documentcss",
