@@ -76,7 +76,8 @@
     "yargs": "^6.5.0"
   },
   "scripts": {
-    "locallink": "./scripts/localLink.js",
+    "locallink": "./scripts/localdev/link.js",
+    "localstart": "./scripts/localdev/start.js",
     "postinstall": "npm run locallink",
     "build": "gulp webpack",
     "component": "gulp component",

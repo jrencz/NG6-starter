@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const pkg = require('../package.json');
+const pkg = require('../../package.json');
 const npm = require('npm');
 const path = require('path');
 const fs = require('fs');
@@ -12,10 +12,10 @@ const {
   green,
 } = require('colors');
 
-const prefix = cyan('[locallink] ');
+const prefix = cyan('[localdev:link]');
 
-const log = msg => {
-  console.log(`${ prefix }${ msg }`);
+const log = (...msgs) => {
+  console.log(prefix, ...msgs);
 };
 
 npm.load(pkg, (err, npm) => {
