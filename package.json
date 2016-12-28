@@ -7,6 +7,7 @@
     "angular": "^1.5.0",
     "angular-ui-router": "^1.0.0-beta.1",
     "test-standalone-component": "git@github.com:jrencz/webpack-library-starter.git#stand-alone-component-test",
+    "test-theme": "git@github.com:jrencz/test-documentcss.git",
     "normalize.css": "^5.0.0"
   },
   "devDependencies": {
@@ -91,6 +92,7 @@
     "webpack": "./node_modules/.bin/gulp webpack"
   },
   "localLink": {
+    "test-theme": "../test-documentcss",
     "test-standalone-component": "../webpack-library-starter"
   },
   "keywords": [
