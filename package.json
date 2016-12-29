@@ -4,6 +4,7 @@
   "description": "Starter for Angular + ES6 + (Webpack or JSPM)",
   "main": "index.js",
   "config": {
+    "port": 3000,
     "localdev": "localdev.config.json"
   },
   "dependencies": {
