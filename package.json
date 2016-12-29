@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "Starter for Angular + ES6 + (Webpack or JSPM)",
   "main": "index.js",
+  "config": {
+    "localdev": "localdev.config.json"
+  },
   "dependencies": {
     "angular": "^1.6.1",
     "angular-ui-router": "^1.0.0-beta.1",
@@ -78,8 +81,8 @@
     "yargs": "^6.5.0"
   },
   "scripts": {
-    "locallink": "localdev-link --config=\"localdev.config.json\"",
-    "localstart": "localdev-start --config=\"localdev.config.json\"",
+    "locallink": "localdev-link --config=\"$npm_package_config_localdev\"",
+    "localstart": "localdev-start --config=\"$npm_package_config_localdev\"",
     "postinstall": "npm run locallink",
     "build": "gulp webpack",
     "component": "gulp component",
