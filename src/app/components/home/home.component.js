@@ -3,7 +3,6 @@ import controller from './home.controller';
 import './home.scss';
 
 const homeComponent = {
-  restrict: 'E',
   bindings: {},
   template,
   controller
