@@ -16,8 +16,12 @@ import {
 } from './lib/resolvePath';
 
 gulp.task('clean', () => del([paths.dest])
-  .then((paths) => {
-    gutil.log("[clean]", paths);
+  .then(removedPaths => {
+    if (removedPaths.length) {
+      gutil.log("[clean] removed", removedPaths);
+    } else {
+      gutil.log("[clean] nothing to be removed");
+    }
   })
 );
 
