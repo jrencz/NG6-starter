@@ -51,9 +51,25 @@ module.exports = (plop) => {
         message: 'Do you want to generate spec file?',
         default: false,
       },
+      {
+        type: 'confirm',
+        name: 'needEnd2End',
+        message: 'Do you want to generate e2e tests file?',
+        default: false,
+        when: ({routable}) => routable,
+      },
+      {
+        type: 'confirm',
+        name: 'needEnd2EndSmoke',
+        message: 'Do you want to generate e2e smoke tests file?',
+        default: false,
+        when: ({routable, needEnd2End}) => routable && needEnd2End,
+      },
     ],
     actions: ({
       needSpec,
+      needEnd2End,
+      needEnd2EndSmoke,
     }) => {
       plop.addPartial('path', '{{#if path}}{{ path }}/{{else}}components/{{/if}}{{ dashCase name }}');
       plop.addPartial('fullPath', `./${ srcPath }/app/{{> path}}`);
@@ -96,6 +112,24 @@ module.exports = (plop) => {
           type: 'add',
           path: '{{> fullPath}}/{{dashCase name}}.spec.js',
           templateFile: './templates/component/spec.js.hbs',
+          abortOnFail: true,
+        });
+      }
+
+      if (needEnd2End) {
+        actions.push({
+          type: 'add',
+          path: '{{> fullPath}}/{{dashCase name}}.e2e.js',
+          templateFile: './templates/component/e2e.js.hbs',
+          abortOnFail: true,
+        });
+      }
+
+      if (needEnd2EndSmoke) {
+        actions.push({
+          type: 'add',
+          path: '{{> fullPath}}/{{dashCase name}}.smoke.e2e.js',
+          templateFile: './templates/component/smoke.e2e.js.hbs',
           abortOnFail: true,
         });
       }

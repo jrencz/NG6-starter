@@ -1,0 +1,17 @@
+describe('{{ dashCase name }} Route', () => {
+
+  // Before each test
+  beforeEach(() => {
+
+    // Navigate to {{ camelCase name }} component
+    browser.get('/{{ dashCase name }}');
+  });
+
+  // {{ camelCase name }} component should be visible
+  it('should be visible', () => {
+
+    // Expect {{ camelCase name }} component to be visible
+    expect(element(by.tagName('{{ dashCase name }}')).isDisplayed()).toBe(true);
+  });
+
+});
