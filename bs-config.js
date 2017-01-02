@@ -17,7 +17,7 @@ config.entry.app = [
 const compiler = webpack(config);
 
 module.exports = {
-  port: 3000,
+  port: process.env.PORT || process.env.npm_package_config_port,
   open: false,
   server: {baseDir: srcPath},
   middleware: [
