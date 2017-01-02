@@ -2,9 +2,12 @@ import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import component from './{{ dashCase name }}.component';
 
-export default angular
+const {{ camelCase name }}Module = angular
   .module('{{ camelCase (pkg 'name') }}.{{ camelCase name }}', [
     uiRouter,
   ])
+
   .component('{{ camelCase name }}', component)
-  .name;
+;
+
+export default {{ camelCase name }}Module.name;

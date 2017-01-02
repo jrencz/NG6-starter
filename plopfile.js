@@ -37,51 +37,64 @@ module.exports = (plop) => {
         message: 'Where to put new component?',
         basePath: `./${ srcPath }/app`,
         default: '',
-        when: answers => answers.needPath,
-      }
+        when: ({needPath}) => needPath,
+      },
+      {
+        type: 'confirm',
+        name: 'needSpec',
+        message: 'Do you want to generate spec file?',
+        default: false,
+      },
     ],
-    actions: () => {
+    actions: ({
+      needSpec,
+    }) => {
       plop.addPartial('path', '{{#if path}}{{ path }}/{{else}}components/{{/if}}{{ dashCase name }}');
       plop.addPartial('fullPath', `./${ srcPath }/app/{{> path}}`);
 
-      return [
+      const actions = [
         {
           type: 'add',
           path: '{{> fullPath}}/{{dashCase name}}.js',
-          templateFile: './templates/component/component.js',
+          templateFile: './templates/component/js.hbs',
           abortOnFail: true,
         },
         {
           type: 'add',
           path: '{{> fullPath}}/{{dashCase name}}.component.js',
-          templateFile: './templates/component/component.component.js',
+          templateFile: './templates/component/component.js.hbs',
           abortOnFail: true,
         },
         {
           type: 'add',
           path: '{{> fullPath}}/{{dashCase name}}.html',
-          templateFile: './templates/component/component.html',
+          templateFile: './templates/component/html.hbs',
           abortOnFail: true,
         },
         {
           type: 'add',
           path: '{{> fullPath}}/{{dashCase name}}.controller.js',
-          templateFile: './templates/component/component.controller.js',
+          templateFile: './templates/component/controller.js.hbs',
           abortOnFail: true,
         },
         {
           type: 'add',
           path: '{{> fullPath}}/{{dashCase name}}.scss',
-          templateFile: './templates/component/component.scss',
+          templateFile: './templates/component/scss.hbs',
           abortOnFail: true,
         },
-        {
+      ];
+
+      if (needSpec) {
+        actions.push({
           type: 'add',
           path: '{{> fullPath}}/{{dashCase name}}.spec.js',
-          templateFile: './templates/component/component.spec.js',
+          templateFile: './templates/component/spec.js.hbs',
           abortOnFail: true,
-        },
-      ]
+        });
+      }
+
+      return actions;
     }
   });
 };
