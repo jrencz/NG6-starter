@@ -93,6 +93,7 @@
     "start": "browser-sync start --config bs-config.js & npm run localstart",
     "test": "karma start & protractor protractor.conf.js",
     "test:unit": "karma start",
+    "test:unit:smoke": "karma start --suite=spec-smoke.bundle.js",
     "test:unit:dev": "karma start --auto-watch --no-single-run --reporters progress",
     "test:e2e:smoke": "protractor protractor.conf.js",
     "test:e2e:all": "protractor protractor.conf.js --suite=all",

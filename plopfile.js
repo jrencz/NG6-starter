@@ -53,6 +53,13 @@ module.exports = (plop) => {
       },
       {
         type: 'confirm',
+        name: 'needSpecSmoke',
+        message: 'Do you want to generate smoke spec file?',
+        default: false,
+        when: ({needSpec}) => needSpec,
+      },
+      {
+        type: 'confirm',
         name: 'needEnd2End',
         message: 'Do you want to generate e2e tests file?',
         default: false,
@@ -68,6 +75,7 @@ module.exports = (plop) => {
     ],
     actions: ({
       needSpec,
+      needSpecSmoke,
       needEnd2End,
       needEnd2EndSmoke,
     }) => {
@@ -112,6 +120,15 @@ module.exports = (plop) => {
           type: 'add',
           path: '{{> fullPath}}/{{dashCase name}}.spec.js',
           templateFile: './templates/component/spec.js.hbs',
+          abortOnFail: true,
+        });
+      }
+
+      if (needSpecSmoke) {
+        actions.push({
+          type: 'add',
+          path: '{{> fullPath}}/{{dashCase name}}.smoke.spec.js',
+          templateFile: './templates/component/smoke.spec.js.hbs',
           abortOnFail: true,
         });
       }

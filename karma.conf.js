@@ -1,5 +1,11 @@
 const commonWebpackLoadersConfig = require('./config/webpack/commonLoaders');
 
+const {
+  suite
+} = require('yargs')
+  .default('suite', 'spec.bundle.js')
+  .argv;
+
 module.exports = function (config) {
   config.set({
     // base path used to resolve all patterns
@@ -10,7 +16,7 @@ module.exports = function (config) {
     frameworks: ['mocha', 'chai'],
 
     // list of files/patterns to load in the browser
-    files: [{ pattern: 'spec.bundle.js', watched: false }],
+    files: [{ pattern: suite, watched: false }],
 
     // files to exclude
     exclude: [],
@@ -27,7 +33,7 @@ module.exports = function (config) {
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-    preprocessors: { 'spec.bundle.js': ['webpack', 'sourcemap'] },
+    preprocessors: { [suite]: ['webpack', 'sourcemap'] },
 
     webpack: Object.assign({
       devtool: 'inline-source-map',
