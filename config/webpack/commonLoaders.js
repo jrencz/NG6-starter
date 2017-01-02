@@ -2,9 +2,10 @@ require('json5/lib/require');
 
 const {
   path: twigPreTemplatesContextFilePath
-} = require('../templateconstants/config');
+} = require('../templateConstants/config');
 
 const path = require('path');
+const sassConfig = require('../../sass.conf.js');
 
 module.exports = {
   module: {
@@ -22,4 +23,5 @@ module.exports = {
   twigRenderLoader: {
     contextFile: twigPreTemplatesContextFilePath,
   },
+  sassLoader: sassConfig,
 };

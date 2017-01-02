@@ -33,8 +33,7 @@ exports.config = {
 
     server.stdout.pipe(process.stdout);
     server.stdout.on('data', data => {
-      const outputStr = data.toString();
-      if (outputStr.includes('bundle is now VALID.')) {
+      if (data.toString().includes('bundle is now VALID.')) {
         console.log('Preparation done. Starting Protractor.');
         resolve();
       }

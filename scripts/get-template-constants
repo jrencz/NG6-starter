@@ -6,7 +6,7 @@ set -e
 COMPONENTS=$1
 DEST_FILE=$2
 
-echo "[gettemplateconstants] Fetching content for components"
+echo "[get-template-constants] Fetching content for components"
 echo "Detected components:"
 echo $COMPONENTS;
 

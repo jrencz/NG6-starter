@@ -6,6 +6,7 @@ module.exports = {
 
   env: {
     node: true,
+    es6: true,
     browser: false
   },
 
@@ -26,6 +27,7 @@ module.exports = {
         ...require('./config/spellcheck/skipWords/fileExtensions'),
         ...require('./config/spellcheck/skipWords/ownNames'),
         ...require('./config/spellcheck/skipWords/programmingJargon'),
+        ...require('./config/spellcheck/skipWords/dependencies'),
         ...require('./config/spellcheck/skipWords/tests')
       ],
       skipIfMatch: require('./config/spellcheck/skipIfMatch'),

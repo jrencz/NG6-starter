@@ -9,7 +9,7 @@ const WebpackShellPlugin = require('webpack-shell-plugin');
 const commonWebpackLoadersConfig = require('./config/webpack/commonLoaders');
 const {
   path: twigPreTemplatesContextFilePath
-} = require('./config/templateconstants/config');
+} = require('./config/templateConstants/config');
 
 const srcPath = require('./config/srcPath');
 
@@ -35,7 +35,7 @@ module.exports = Object.assign({
 
     new StylelintWebpackPlugin({
       files: [
-        `${ srcPath }/**/*.s?(a|c)ss`,
+        `${ srcPath }/**/*.scss`,
       ],
     }),
 
@@ -49,7 +49,7 @@ module.exports = Object.assign({
         // The main idea is to allow passing module names to fetch only the needed data
         // It's possible that the list can be compiled by webpack itself and that data
         // fetching can be batched, but I din't get that far in mastering loaders api
-        `./scripts/gettemplateconstants about,home,hero ${ twigPreTemplatesContextFilePath }`,
+        `./scripts/get-template-constants about,home,hero ${ twigPreTemplatesContextFilePath }`,
       ]
     }),
 

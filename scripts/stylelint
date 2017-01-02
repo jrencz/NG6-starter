@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-./node_modules/.bin/stylelint "src/**/*.s?(a|c)ss" --syntax scss

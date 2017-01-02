@@ -16,5 +16,3 @@
 #
 # Always run `browserslist` cli tool (npm i -g browserslist-cli) to
 # see if declaration you add results in correct resolution
-
-
