@@ -86,7 +86,7 @@
     "locallink": "localdev-link --config=\"$npm_package_config_localdev\"",
     "localstart": "localdev-start --config=\"$npm_package_config_localdev\"",
     "postinstall": "npm run locallink",
-    "build": "gulp webpack",
+    "build": "gulp clean && webpack --config=webpack.dist.config.js",
     "generate": "plop",
     "generate:component": "plop component",
     "serve": "browser-sync start --config bs-config.js",
@@ -100,8 +100,7 @@
     "stylelint": "./scripts/stylelint",
     "checkupdates": "./scripts/checkupdates",
     "updatedeps": "./scripts/updatedeps",
-    "browserslist": "./scripts/browserslist",
-    "webpack": "gulp webpack"
+    "browserslist": "./scripts/browserslist"
   },
   "keywords": [
     "angular",
