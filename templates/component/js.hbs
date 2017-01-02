@@ -6,6 +6,20 @@ const {{ camelCase name }}Module = angular
   .module('{{ camelCase (pkg 'name') }}.{{ camelCase name }}', [
     uiRouter,
   ])
+{{#if routable}}
+
+  .config((
+    $stateProvider
+  ) => {
+    'ngInject';
+
+    $stateProvider
+      .state('{{ camelCase name }}', {
+        url: '/{{ dashCase name }}',
+        component: '{{ camelCase name }}'
+      });
+  })
+{{/if}}
 
   .component('{{ camelCase name }}', component)
 ;

@@ -27,6 +27,12 @@ module.exports = (plop) => {
       },
       {
         type: 'confirm',
+        name: 'routable',
+        message: 'Is the component routable?',
+        default: false,
+      },
+      {
+        type: 'confirm',
         name: 'needPath',
         message: 'Do you want to specify the path manually (otherwise component will be placed in `components`)',
         default: false,
