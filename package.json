@@ -97,6 +97,7 @@
     "generate:component": "plop component",
     "serve": "browser-sync start --config bs-config.js",
     "test": "npm run lint && karma start && protractor protractor.conf.js",
+    "test:smoke": "npm run test:unit:smoke && rpm run test:e2e:smoke",
     "test:unit": "karma start",
     "test:unit:smoke": "karma start --suite=\"spec-smoke.bundle.js\"",
     "test:unit:dev": "karma start --auto-watch --no-single-run --reporters progress",

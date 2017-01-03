@@ -11,6 +11,7 @@ Inspired by [NG6-starter](https://angularclass.github.io/NG6-starter/) by [Angul
   - [Dependencies](#dependencies)
     - [Node](#node)
       - [Keeping npm packages local](#keeping-npm-packages-local)
+      - [Dependency management](#dependency-management)
     - [Java](#java)
   - [Build & Development System](#build--development-system)
   - [Project integrity](#project-integrity)
@@ -42,6 +43,9 @@ It is also recommended to install latest version of `npm` itself: `npm update -g
 _Related config files_:
 - [.nvmrc](./.nvmrc)
 
+_Related commands_:
+- `nvm use`
+
 #### Keeping npm packages local
 
 Starter was developed with "no global dependencies but Node itself" in mind. This means that as long as you stick to
@@ -56,6 +60,11 @@ from the previous version which is easy to be forgotten about and thus inconveni
 Most such packages can be installed locally, because there's nothing (but the fact that they are intended to be used in
 CLI) keeps them from being local. To handle that this starter defines an [`npm script`](https://docs.npmjs.com/misc/scripts)
 for each significant CLI tool we install via npm.
+
+#### Dependency management
+
+Starter is equipped with [`npm-check-updates`](https://www.npmjs.com/package/npm-check-updates) which finds stale
+dependencies (run `npm run dependencies:check-updates`) and updates them (run `npm run dependencies:update`).
 
 ### Java
 
@@ -73,7 +82,8 @@ Vast majority of tasks are performed using various Front-End CLI tools
 - [`Webpack`](https://webpack.github.io) handles all file-related concerns:
   - Loading JS files as modules
   - Loading HTML files as modules
-  - _Pre-_ and _post-_processing stylesheets and appending them to the DOM
+  - _Pre-_ and _post-_processing stylesheets via [`sass`](https://github.com/jtangelder/sass-loader) and
+    [`postcss`](https://github.com/postcss/postcss-loader) [loaders](https://webpack.github.io/docs/loaders.html)
   - Refreshing the browser and rebuilding on file changes (with [`browsersync`](https://www.browsersync.io)))
   - Hot module replacement for processed stylesheets
   - Bundling the app
@@ -84,6 +94,10 @@ Vast majority of tasks are performed using various Front-End CLI tools
   - [dev-specific webpack config](./webpack.dev.config.js)
   - [distribution-specific webpack config](./webpack.dist.config.js)
 
+  _Related commands_:
+  - `npm start`
+  - `npm run build`
+
 - [`Babel`](https://babeljs.io) handles transformation of latest JS syntax into something today's browsers can
 understand. [`babel-preset-env`](https://github.com/babel/babel-preset-env) takes care of what has to be transpiled
 according to the configuration provided in [`browserslist`](https://github.com/ai/browserslist) format.
@@ -92,11 +106,17 @@ according to the configuration provided in [`browserslist`](https://github.com/a
   - [.babelrc](./.babelrc)
   - [browserslist](./browserslist)
 
+  _Related commands_:
+  - `npm run info:supported-browsers`
+
 - [`Browsersync`](https://www.browsersync.io) is used to establish an HTTP server to serve the bundled application in
 development (and hot-replace modules where possible as you develop).
 
   _Related config files_:
   - [bs-config.js](./bs-config.js)
+  
+  _Related commands_:
+  - `npm run serve`
 
 - [`Sass`](http://sass-lang.com) (technically: [`node-sass`](https://www.npmjs.com/package/node-sass) which is way
 faster than the original Ruby Sass) is used to process authored stylesheets (written as `*.scss`) into browser-suitable
@@ -112,6 +132,9 @@ like [`autoprefixer`](https://github.com/postcss/autoprefixer) for performing CS
   - [.postcssrc](./.postcssrc)
   - [browserslist](./browserslist)
 
+  _Related commands_:
+  - `npm run info:supported-browsers`
+
 - [`npm script`](https://docs.npmjs.com/misc/scripts) are used to invoke all other tools to keep them local. (See [keeping npm packages local](#keeping-npm-packages-local))
 
   _Related config files_:
@@ -124,6 +147,15 @@ because some tools (luckily: not very many of them) are available only as gulp p
   _Related config files_:
   - [gulpfile.babel.js](./gulpfile.babel.js)
 
+- [`localdev`](https://github.com/jrencz/localdev) provides a way to facilitate development of both the project and its
+dependencies installed via NPM. 
+
+  _Related config files_:
+  - [localdev.config.json](./localdev.config.json)
+
+  _Related commands_:
+  - `npm run maintenance:localstart`
+  - `npm run maintenance:locallink`
 
 ## Project integrity
 
@@ -144,16 +176,27 @@ because some tools (luckily: not very many of them) are available only as gulp p
   - [ESLint config for authored end-to-end tests](./.eslintrc-e2e.js)
   - [.eslintignore](./.eslintignore)
 
+  _Related commands_:
+  - `npm run lint:source`
+  - `npm run lint:specs`
+  - `npm run lint:e2e`
+
 - [`Stylelint`](http://stylelint.io) handles styles (SCSS).
 
   _Related config files_:
   - [.stylelintrc](./.stylelintrc)
+
+  _Related commands_:
+    - `npm run lint:styles`
 
 - [`lintspaces`](https://www.npmjs.com/package/lintspaces) checks whether files conform with `.editorconfig` (apart from
 integrating with your editor of choice)
 
   _Related config files_:
   - [.editorconfig](./.editorconfig)
+
+  _Related commands_:
+    - `npm run lint:editorconfig`
 
 #### ESLint plugins worth describing
 
@@ -187,6 +230,14 @@ _Related config files_:
 - [smoke-test entry point for Karma](./spec-smoke.bundle.js)
 - [protractor.conf.js](./protractor.conf.js)
 
+_Related commands_:
+- `npm run test` - runs entire test suite once
+- `npm run test:smoke` - runs smoketests once
+- `npm run test:unit` - runs specs
+- `npm run test:unit:smoke` - runs spec smoketests
+- `npm run test:e2e` - runs end-to-end tests
+- `npm run test:e2e:smoke` - runs end-to-end smoketests
+- `npm maintenance:webdriver-update`
 
 ## Code generation
 
@@ -195,6 +246,10 @@ eventually be turned into [plop generator](https://github.com/amwmedia/plop#plop
 
 _Related config files_:
 - [plopfile.js](./plopfile.js)
+
+_Related commands_:
+- `npm run generate` generator CLI with interactive subject selection 
+- `npm run generate:component` interactive generator for a component
 
 
 # FAQ
