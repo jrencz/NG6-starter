@@ -113,7 +113,7 @@
     "maintenance:localstart": "localdev-start --config=\"$npm_package_config_localdev\"",
     "maintenance:webdriver-update": "webdriver-manager update",
     "dependencies:check-updates": "ncu",
-    "dependencies:update": "ncu -u && npm install",
+    "dependencies:update": "ncu -a && npm update",
     "info:supported-browsers": "BROWSERSLIST_STATS=$npm_package_config_browserslistStats browserslist --config=browserslist"
   },
   "keywords": [
