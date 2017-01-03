@@ -33,7 +33,13 @@ exports.config = {
 
     server.stdout.pipe(process.stdout);
     server.stdout.on('data', data => {
-      if (data.toString().includes('bundle is now VALID.')) {
+      const dataString = data.toString();
+      if (dataString.includes('Module build failed:')) {
+        server.kill();
+        reject();
+      }
+
+      if (dataString.includes('bundle is now VALID.')) {
         console.log('Preparation done. Starting Protractor.');
         resolve();
       }
