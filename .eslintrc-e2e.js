@@ -10,20 +10,22 @@ const [
 
 module.exports = {
   extends: [
-    commonEslintrc
+    commonEslintrc,
+    'plugin:protractor/recommended',
   ],
 
   plugins: [
     'angular',
-    'jasmine'
+    'jasmine',
+    'protractor'
   ],
 
   env: {
     node: false,
     browser: true,
     jasmine: true,
-    'angular/angular': true,
-    'angular/mocks': true
+    protractor: true,
+    'angular/angular': true
   },
 
   rules: {

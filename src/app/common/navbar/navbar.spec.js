@@ -1,5 +1,7 @@
 import NavbarModule from './navbar'
 
+import {expect} from 'chai';
+
 describe('Navbar', () => {
   let $rootScope, $state, $location, $componentController, $compile;
 

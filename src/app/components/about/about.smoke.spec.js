@@ -1,5 +1,7 @@
 import AboutModule from './about'
 
+import {expect} from 'chai';
+
 describe('About', () => {
   let $componentController;
   let $rootScope;

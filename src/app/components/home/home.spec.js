@@ -1,5 +1,7 @@
 import HomeModule from './home'
 
+import {expect} from 'chai';
+
 describe('Home', () => {
   let $rootScope, $state, $location, $componentController, $compile;
 

@@ -3,6 +3,8 @@ import HeroController from './hero.controller';
 import HeroComponent from './hero.component';
 import HeroTemplate from './hero.html';
 
+import {expect} from 'chai';
+
 describe('Hero', () => {
   let $rootScope, makeController;
 

@@ -140,7 +140,8 @@ because some tools (luckily: not very many of them) are available only as gulp p
 
   _Related config files_:
   - [ESLint config for authored code](./.eslintrc.js)
-  - [ESLint config for authored tests](./.eslintrc-tests.js)
+  - [ESLint config for authored specs](./.eslintrc-spec.js)
+  - [ESLint config for authored end-to-end tests](./.eslintrc-e2e.js)
   - [.eslintignore](./.eslintignore)
 
 - [`Stylelint`](http://stylelint.io) handles styles (SCSS).
@@ -173,10 +174,11 @@ There are 2 independent dimensions of testing built in into this starter:
 - suites ([smoketests](http://softwaretestingfundamentals.com/smoke-testing/) suite and in-depth suite)
 
 Code is tested in project on 2 levels:
-- __unit__ (run with [`Karma`](https://karma-runner.github.io/1.0/index.html)) - ensures business of tested
+- __unit__ (run with [`Karma`](https://karma-runner.github.io/latest/index.html) runner using [`Mocha`](http://mochajs.org/)
+    as testing framework and [`Chai`](http://chaijs.com/) as assertion library) - ensures business of tested
 component or service logic is ok.
-- __end-to-end__ (run with [`Protractor`](https://github.com/angular/protractor)) - ensures application running in
-browser works as intended.
+- __end-to-end__ (run with [`Protractor`](https://github.com/angular/protractor), currently with [`Jasmine`](https://jasmine.github.io)
+which is a default) - ensures application running in browser works as intended.
 
 Both those levels are prepared to run multiple suites.
 
