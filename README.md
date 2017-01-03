@@ -85,7 +85,8 @@ Vast majority of tasks are performed using various Front-End CLI tools
   - [distribution-specific webpack config](./webpack.dist.config.js)
 
 - [`Babel`](https://babeljs.io) handles transformation of latest JS syntax into something today's browsers can
-understand
+understand. [`babel-preset-env`](https://github.com/babel/babel-preset-env) takes care of what has to be transpiled
+according to the configuration provided in [`browserslist`](https://github.com/ai/browserslist) format.
 
   _Related config files_:
   - [.babelrc](./.babelrc)
