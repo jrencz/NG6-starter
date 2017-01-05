@@ -4,12 +4,10 @@ var path    = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var StylelintWebpackPlugin = require('stylelint-webpack-plugin');
-const WebpackShellPlugin = require('webpack-shell-plugin');
+const ComponentExternalContextWebpackPlugin =
+  require('./lib/webpack/componentExternalContext/plugin/ComponentExternalContextWebpackPlugin');
 
 const commonWebpackLoadersConfig = require('./config/webpack/commonLoaders');
-const {
-  path: twigPreTemplatesContextFilePath
-} = require('./config/templateConstants/config');
 
 const srcPath = require('./config/srcPath');
 
@@ -39,18 +37,10 @@ module.exports = Object.assign({
       ],
     }),
 
-    /**
-     * @Note: this is a workaround for compiling twigs into html files without a need for a custom
-     *        twig loader which would RENDER templates instead of just COMPILING them
-     */
-    new WebpackShellPlugin({
-      onBuildStart: [
-        // TODO: list modules instead of hard-coding them
-        // The main idea is to allow passing module names to fetch only the needed data
-        // It's possible that the list can be compiled by webpack itself and that data
-        // fetching can be batched, but I din't get that far in mastering loaders api
-        `./scripts/get-template-constants about,home,hero ${ twigPreTemplatesContextFilePath }`,
-      ]
+    new ComponentExternalContextWebpackPlugin({
+      root: srcPath,
+      componentsPattern: '**/*.componentrc',
+      endpointUriTemplate: 'https://gist.githubusercontent.com/jrencz/6bcc5972b2b29575e023ba7f9e1d8876/raw/39cb8101f9eaa5b7852817e57b37f451bb9ff600/componentdata.json{?params*}'
     }),
 
     // Automatically move all modules defined outside of application directory to vendor bundle.

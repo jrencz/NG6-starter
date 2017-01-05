@@ -1,7 +1,7 @@
 <navbar></navbar>
 <h1>{% verbatim %}{{ $ctrl.name }}{% endverbatim %}</h1>
 <section>
-  About us.... {{ about }}
+  About us.... {{ about.someKey.onlySource.andComponent.know }}
   <input ng-model="$ctrl.testName">
   <test-standalone-component name="$ctrl.testName" on-clicked="$ctrl.externalComponentClicked()"></test-standalone-component>
 </section>
