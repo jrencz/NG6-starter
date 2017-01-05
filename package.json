@@ -94,7 +94,7 @@
   },
   "scripts": {
     "postinstall": "npm run maintenance:locallink",
-    "start": "export BROWSERSLIST_STATS=$npm_package_config_browserslistStats; browser-sync start --config bs-config.js & npm run maintenance:localstart",
+    "start": "npm run maintenance:localstart && export BROWSERSLIST_STATS=$npm_package_config_browserslistStats; browser-sync start --config bs-config.js",
     "build": "export BROWSERSLIST_STATS=$npm_package_config_browserslistStats; gulp clean && webpack --config=webpack.dist.config.js",
     "generate": "plop",
     "generate:component": "plop component",
