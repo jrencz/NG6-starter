@@ -9,6 +9,7 @@
         "first-nested"
       ]
     }],
-    "media-feature-no-missing-punctuation": null
+    "media-feature-no-missing-punctuation": null,
+    "selector-type-no-unknown": null
   }
 }

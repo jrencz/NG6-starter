@@ -1,0 +1,7 @@
+test-standalone-component {
+  display: block;
+
+  // this is how our component looks in this very application
+  // if some style belongs to the component, not the application
+  // it's used in then styles should be moved to that component.
+}
