@@ -30,9 +30,17 @@ class TestStandaloneComponentController {
     this.wrappedComponentController.render();
   }
 
+  handleNameChange(change) {
+    if (change.isFirstChange()) {
+      return;
+    }
+
+    this.wrappedComponentController.changeName(change.currentValue);
+  }
+
   $onChanges(changes) {
-    if ('name' in changes && !changes.name.isFirstChange()) {
-      this.wrappedComponentController.changeName(changes.name.currentValue);
+    if ('name' in changes) {
+      this.handleNameChange(changes.name);
     }
   }
 }
