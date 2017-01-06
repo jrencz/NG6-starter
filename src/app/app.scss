@@ -1,6 +1,25 @@
 @import "common/common";
 
-.app {
+[ng-app="app"] {
+  display: flex;
+  min-height: 100vh;
+
+  app {
+    flex: 1;
+  }
+}
+
+app {
+  display: flex;
+
+  .appContainer {
+    flex: 1;
+  }
+}
+
+.appContainer {
   height: 100%;
-  background-color: $lightBgColor;
+  max-width: 1224px;
+  margin: 0 auto;
+  background-color: $bgColor;
 }
