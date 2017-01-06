@@ -40,7 +40,7 @@ module.exports = Object.assign({
     new ComponentExternalContextWebpackPlugin({
       root: srcPath,
       componentsPattern: '**/*.componentrc',
-      endpointUriTemplate: 'https://gist.githubusercontent.com/jrencz/6bcc5972b2b29575e023ba7f9e1d8876/raw/39cb8101f9eaa5b7852817e57b37f451bb9ff600/componentdata.json{?params*}'
+      endpointUriTemplate: 'https://gist.githubusercontent.com/jrencz/6bcc5972b2b29575e023ba7f9e1d8876/raw/componentdata.json{?params*}',
     }),
 
     // Automatically move all modules defined outside of application directory to vendor bundle.
