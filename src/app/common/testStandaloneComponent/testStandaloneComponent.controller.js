@@ -3,6 +3,7 @@ import TestStandaloneComponent from 'test-standalone-component';
 class TestStandaloneComponentController {
   constructor(
     $element,
+    $timeout,
     $rootScope
   ) {
     'ngInject';
@@ -13,13 +14,16 @@ class TestStandaloneComponentController {
     // Other may be to call imported function and assign what it returns (the API object) to this controller.
     this.wrappedComponentController = new TestStandaloneComponent($element, {
       // Example input
-      name: 'Initial name (set in project)',
+      name: 'Initial name (set in application)',
+      isRTL: this.isRightToLeft,
       onClicked: () => {
         if (typeof this.onClicked === 'function') {
-          // $apply tells Angular something changed. It will always be needed in facades.
-          $rootScope.$apply(() => {
-            this.onClicked();
-          });
+          if (this.delayedOnClicked) {
+            $timeout(1000).then(::this.onClicked);
+          } else {
+            // $apply tells Angular something changed. It will always be needed in facades.
+            $rootScope.$apply(::this.onClicked);
+          }
         }
       }
     });
@@ -38,9 +42,20 @@ class TestStandaloneComponentController {
     this.wrappedComponentController.changeName(change.currentValue);
   }
 
+  handleIsRightToLeftChangeChange(change) {
+    if (change.isFirstChange()) {
+      return;
+    }
+
+    this.wrappedComponentController.setRTL(change.currentValue);
+  }
+
   $onChanges(changes) {
     if ('name' in changes) {
       this.handleNameChange(changes.name);
+    }
+    if ('isRightToLeft' in changes) {
+      this.handleIsRightToLeftChangeChange(changes.isRightToLeft);
     }
   }
 }

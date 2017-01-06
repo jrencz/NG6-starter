@@ -1,10 +1,13 @@
 class AboutController {
   constructor() {
     this.name = 'about';
+    this.standaloneComponentDemoInputDefaultValue =
+      'default value of the input field';
   }
 
   externalComponentClicked() {
-    this.testName = 'Name was reset because component was clicked';
+    this.standaloneComponentDemoInputValue =
+      this.standaloneComponentDemoInputDefaultValue;
   }
 }
 
