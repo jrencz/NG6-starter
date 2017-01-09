@@ -1,0 +1,73 @@
+<section>
+  <h2>Application component remote configuration demos</h2>
+
+  <demo>
+    <description-pane>
+      <p>
+        This demos shows that application template can be configured
+        via a remote service</p>
+      <p>
+        Text below the line on the right interpolated at compile time (it
+        means it's recompiled each time the template changes) but the value
+        content comes from is fetched once when compiler is run.
+      </p>
+
+      <h4>1: change the remote configuration:</h4>
+      <ol>
+        <li>
+          Go to the configuration service and find a form for configuring a
+          component named "demos"
+        </li>
+        <li>
+          Change the string representing a key named
+          <code>someKey.onlySource.andComponent.know"</code>
+        </li>
+        <li>Stop current run of the application</li>
+        <li>Start again</li>
+      </ol>
+
+      <p>
+        Mind that the value you will provide is not escaped in any way.
+        This means you may use the full capabilities of the template engine the
+        application uses (Angular 1.x templates in this case).
+      </p>
+      <ol>
+        <li>Try using
+          <code>
+            {% verbatim %}
+            <span ng-non-bindable>{{ $ctrl.name }}</span>
+            {% endverbatim %}
+          </code>
+          <br>
+          You should see "{% verbatim %}{{ $ctrl.name }}{% endverbatim %}"
+        </li>
+
+        <li>Try using
+          <code>
+            {% verbatim %}
+            <span ng-non-bindable>{{ $ctrl.remoteConfigurationDemoInputValue }}</span>
+            {% endverbatim %}
+          </code>
+          <br>
+        </li>
+      </ol>
+    </description-pane>
+
+    <demo-pane>
+      <p>
+        If you used
+        {% verbatim %}
+        <code ng-non-bindable>{{ $
+          ctrl.remoteConfigurationDemoInputValue }}</code>
+        {% endverbatim %}
+        You should see dynamically updated content of this input: <input
+        type="text" ng-model="$ctrl.remoteConfigurationDemoInputValue">
+        somewhere in text below the line:
+      </p>
+
+      <hr>
+
+      {{ demos.someKey.onlySource.andComponent.know }}
+    </demo-pane>
+  </demo>
+</section>

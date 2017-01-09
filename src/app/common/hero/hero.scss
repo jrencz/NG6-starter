@@ -8,8 +8,5 @@ hero {
   background-color: $darkBgColor;
   height: 3rem;
   padding: 3rem;
-
-  * {
-    color: $lightTextColor;
-  }
+  color: $lightTextColor;
 }

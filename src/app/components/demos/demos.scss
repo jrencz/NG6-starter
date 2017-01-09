@@ -1,0 +1,15 @@
+demos {
+  display: block;
+
+  section {
+    padding: 1em 10px;
+  }
+
+  input[type="text"] {
+    margin: 1em 0;
+  }
+
+  .demos-component-adapter {
+    border: 1px solid black;
+  }
+}

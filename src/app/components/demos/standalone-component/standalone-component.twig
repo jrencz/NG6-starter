@@ -1,0 +1,99 @@
+<section>
+  <h2>Standalone component demo</h2>
+
+  <demo>
+    <description-pane>
+      <p>
+        This demos shows that external, framework-agnostic components can be
+        embedded inside an application.
+      </p>
+
+      <h4>Overview</h4>
+
+      <p>There are 3 entities:</p>
+      <ol>
+        <li>
+          <strong>the application</strong> - it takes care demos the routing and
+          it has its own logic
+        </li>
+        <li>
+          <strong>the external component</strong> - it does it's thing and it does
+          it well. Whether it can do input and output operations it entirely up to
+          that component's implementers. It does not assume it works within an
+          application or what framework that application uses. If it uses any
+          libraries it either has them bundled or it expects them to be available
+          in the surroundings (pretty much like every 3rd party front end code has
+          ever done)
+        </li>
+        <li>
+          <strong>the component adapter</strong> - it's a part of the application
+          (if no other application using the same framework is likely to reuse it)
+          or at least it's an external module (otherwise) but it has 2 features:
+          <ul>
+            <li>
+              it knows the framework API (in this case: it's Angular 1.5+ Component)
+            </li>
+            <li>
+              it knows the external component API (in this case:
+              <code>test-standalone-component</code>)
+            </li>
+          </ul>
+        </li>
+      </ol>
+
+      <h4>1: external component's internal logic</h4>
+
+      <p>Please click on a component.</p>
+      <p>
+        When you clicked on the component it did run its internal logic. By the
+        time this demos were prepared the logic was:
+      </p>
+
+      <blockquote>
+        apply <code>active</code> class onto the main node
+      </blockquote>
+
+      <p>
+        This behavior is not guaranteed neither it is controlled from within
+        the application.
+      </p>
+
+      <h4>2: external component's output</h4>
+
+      <p>
+        You might have noticed that when you clicked the component another action
+        was performed: the content of the input field above was set to
+        "{% verbatim %}{{ $ctrl.defaultValue }}{% endverbatim %}". This i
+        <strong>application's</strong> behavior <em>what</em> content was
+        assigned, but the fact that it happened when you clicked originates in
+        the <strong>external component</strong>. <strong>adapter</strong>
+        exposes component API to the application. In this case: it creates what
+        Angular 1.x calls "a binding" so application function can be called
+        when something internal (reaction to click interaction) happened in
+        the component.
+      </p>
+    </description-pane>
+
+    <demo-pane>
+      <p>
+        Input below is managed by the application. Its content will be shown
+        inside standalone component. The content will be updated in real time.
+      </p>
+
+      <input type="text" ng-model="$ctrl.inputValue">
+
+      <p>
+        What's inside an outlined box below is the <strong>component
+        adapter</strong>. The border is applied by the application but all
+        the styles inside belong either to the adapter or to
+        the <strong>component</strong> it wraps.
+      </p>
+
+      <test-standalone-component
+        class="demos-component-adapter"
+        name="$ctrl.inputValue"
+        on-clicked="$ctrl.externalComponentClicked()"></test-standalone-component>
+
+    </demo-pane>
+  </demo>
+</section>

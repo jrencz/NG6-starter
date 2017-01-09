@@ -1,12 +1,12 @@
-import AboutModule from './about'
+import DemosModule from './'
 
 import {expect} from 'chai';
 
-describe('About', () => {
+describe('Demos', () => {
   let $componentController;
   let $rootScope;
 
-  beforeEach(window.module(AboutModule));
+  beforeEach(window.module(DemosModule));
 
   beforeEach(inject(($injector) => {
     $rootScope = $injector.get('$rootScope');
@@ -17,7 +17,7 @@ describe('About', () => {
     // controller specs
     let controller;
     beforeEach(() => {
-      controller = $componentController('about', {
+      controller = $componentController('demos', {
         $scope: $rootScope.$new()
       });
     });

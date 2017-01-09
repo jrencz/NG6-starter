@@ -1,0 +1,16 @@
+demo {
+  display: flex;
+  flex-direction: row;
+
+  .pane {
+    padding: 1em;
+
+    &--description {
+      flex: 2;
+    }
+
+    &--demo {
+      flex: 1;
+    }
+  }
+}

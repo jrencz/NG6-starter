@@ -1,0 +1,107 @@
+<section
+  {# TODO: find a way to expose remote config to runtime other than via template #}
+  ng-init="$ctrl.localIsRTL = {{ demos.testStandaloneComponentConfig.isRTL ? 'true' : 'false' }};">
+  <h2>External component remote & local configuration demos</h2>
+
+  <demo>
+    <description-pane>
+
+      <p>
+        Let's combine both concepts shown above and try to configure external
+        component remotely.
+      </p>
+
+      <p><em>WAIT!</em> Is't it up to the <strong>external</strong> component how it's configured if it's external?</p>
+      <p>
+        If it should affect all the places, all the applications it's used in then
+        yes. But if in Application 1 the component should have feature X enabled
+        while in Application B it should have it disabled then it's application's
+        job to pass that option to the component.
+      </p>
+
+      <h4>External component configuration matrix</h4>
+
+      <p>A note on <code>delayedOnClicked</code></p>
+      <p>
+        External component does not have <code>delayedOnClicked</code>.
+        <br>
+        The adapter has it.
+        <br>
+        We could configure the adapter remotely as well.
+      </p>
+      <p>
+        Let's say <code>delayedOnClicked</code> means "should the
+        <code>onClicked</code> binding work immediately (if <code>false</code>)
+        or with a delay (if <code>true</code>).
+      </p>
+      <p>
+        Mind that it does not affect the internal behavior (applying
+        <code>active</code> class) but rather application behavior (resetting
+        the input to "{% verbatim %}{{ $ctrl.defaultValue }}{% endverbatim %}")
+      </p>
+
+      <table>
+        <tr>
+          <th>Feature / Source</th>
+          <th style="min-width:50%">Remote</th>
+          <th>Local</th>
+        </tr>
+        <tr>
+          <th><code>isRTL</code></th>
+          <td>
+            <p>
+              To change it you have to perform steps described in demos above
+            </p>
+            <p>
+              <code>isRTL</code> set to
+              <code>{{ demos.testStandaloneComponentConfig.isRTL ? 'true' : 'false' }}</code>
+            </p>
+          </td>
+          <td>
+            <p>
+              Be default it's set to the same value
+            </p>
+            <p>
+              <code>isRTL</code> <input
+                type="checkbox"
+                ng-model="$ctrl.localIsRTL">
+            </p>
+            <p>
+              <code>isRTL</code> set to
+              <code>{% verbatim %}{{ localIsRTL ? 'true' : 'false' }}{% endverbatim %}</code>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <th><code>delayedOnClicked</code></th>
+          <td><em>no remote value (for brevity)</em></td>
+          <td>
+            <p>
+              <code>delayedOnClicked</code> <input
+                type="checkbox"
+                ng-model="$ctrl.standaloneComponentAdapterDelayedOnClicked">
+            </p>
+            <p>
+              <code>delayedOnClicked</code> set to
+              <code>{% verbatim %}{{ $ctrl.standaloneComponentAdapterDelayedOnClicked ? 'true' : 'false' }}{% endverbatim %}</code>
+            </p>
+          </td>
+        </tr>
+      </table>
+    </description-pane>
+
+    <demo-pane>
+      <p>Put some text here:</p>
+      <input type="text" ng-model="$ctrl.inputValue">
+
+      <p>Interact and/or observe external component:</p>
+      <test-standalone-component
+        class="demos-component-adapter"
+        is-right-to-left="$ctrl.localIsRTL"
+        delayed-on-clicked="$ctrl.standaloneComponentAdapterDelayedOnClicked"
+        name="$ctrl.inputValue"
+        on-clicked="$ctrl.externalComponentClicked()"></test-standalone-component>
+    </demo-pane>
+  </demo>
+
+</section>

@@ -15,11 +15,11 @@ describe('Home Route', () => {
     expect(element(by.tagName('home')).isDisplayed()).toBe(true);
   });
 
-  // Link to About navigates to About Component
-  it('should navigate to About if About link clicked', () => {
+  // Link to Demos navigates to Demos Component
+  it('should navigate to Demos if Demos link clicked', () => {
 
-    // Click navigation to About route
-    element(by.css('[ui-sref="about"]'))
+    // Click navigation to Demos route
+    element(by.css('[ui-sref="demos"]'))
       .click()
       .then(() => {
 

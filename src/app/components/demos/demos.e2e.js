@@ -1,10 +1,10 @@
-describe('About Route', () => {
+describe('Demos Route', () => {
 
   // Before each test
   beforeEach(() => {
 
-    // Navigate to about component
-    browser.get('/about');
+    // Navigate to demos component
+    browser.get('/demos');
   });
 
   // Link to Home navigates to Home Component
@@ -15,8 +15,8 @@ describe('About Route', () => {
       .click()
       .then(() => {
 
-        // Expect About component to be not be present
-        expect(element(by.tagName('about')).isPresent()).toBe(false);
+        // Expect Demos component to be not be present
+        expect(element(by.tagName('demos')).isPresent()).toBe(false);
       })
   });
 
