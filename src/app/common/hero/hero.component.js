@@ -1,4 +1,4 @@
-import template from './hero.html';
+import template from './hero.twig';
 import controller from './hero.controller';
 import './hero.scss';
 

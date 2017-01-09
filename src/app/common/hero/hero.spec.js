@@ -1,7 +1,7 @@
 import HeroModule from './'
 import HeroController from './hero.controller';
 import HeroComponent from './hero.component';
-import HeroTemplate from './hero.html';
+import HeroTemplate from './hero.twig';
 
 import {expect} from 'chai';
 
