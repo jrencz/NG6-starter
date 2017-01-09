@@ -3,7 +3,6 @@ import './app.scss';
 
 const appComponent = {
   template,
-  restrict: 'E'
 };
 
 export default appComponent;
