@@ -1,4 +1,4 @@
-import HomeModule from './home'
+import HomeModule from './'
 
 import {expect} from 'chai';
 

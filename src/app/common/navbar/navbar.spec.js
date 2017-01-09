@@ -1,4 +1,4 @@
-import NavbarModule from './navbar'
+import NavbarModule from './'
 
 import {expect} from 'chai';
 

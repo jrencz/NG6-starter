@@ -85,7 +85,7 @@ module.exports = (plop) => {
       const actions = [
         {
           type: 'add',
-          path: '{{> fullPath}}/{{dashCase name}}.js',
+          path: '{{> fullPath}}/index.js',
           templateFile: './templates/component/js.hbs',
           abortOnFail: true,
         },
