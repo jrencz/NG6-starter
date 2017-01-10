@@ -1,0 +1,43 @@
+<section>
+  <h2>Local VS external component adapter demo</h2>
+
+  <demo>
+    <description-pane>
+      <p>
+        This demos shows that external, framework-agnostic components can be
+        embedded using either adapter maintained locally or one that itself
+        is a self-contained project (installed via NPM)
+      </p>
+
+      <p>
+        It's worth maintaining an adapter as a distinct project only if it's
+        likely to be used by more than one appliacation using the same
+        framework.
+      </p>
+
+      <p>
+        Demo works exactly like the <a ui-sref="^.standaloneComponent">standalone
+          component</a>
+      </p>
+    </description-pane>
+
+    <demo-pane>
+      <input type="text" ng-model="$ctrl.inputValue">
+
+      <h4>Component adapter defined in this project:</h4>
+
+      <test-standalone-component
+        class="demos-component-adapter"
+        name="$ctrl.inputValue"
+        on-clicked="$ctrl.externalComponentClicked()"></test-standalone-component>
+
+      <h4>Component adapter defined as external project:</h4>
+
+      <test-standalone-component-adapter
+        class="demos-component-adapter"
+        name="$ctrl.inputValue"
+        on-clicked="$ctrl.externalComponentClicked()"></test-standalone-component-adapter>
+
+    </demo-pane>
+  </demo>
+</section>

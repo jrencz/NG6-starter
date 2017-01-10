@@ -1,4 +1,5 @@
 {
   "test-theme": "../test-documentcss",
+  "standalone-component-ng1-adapter": "../standalone-component-ng1-adapter",
   "test-standalone-component": "../webpack-library-starter"
 }
