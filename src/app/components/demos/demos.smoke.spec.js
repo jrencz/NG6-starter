@@ -1,7 +1,5 @@
 import DemosModule from './'
 
-import {expect} from 'chai';
-
 describe('Demos', () => {
   let $componentController;
   let $rootScope;
@@ -23,7 +21,7 @@ describe('Demos', () => {
     });
 
     it('has a name property', () => { // erase if removing this.name from the controller
-      expect(controller).to.have.property('name');
+      expect(controller).toHaveMember('name');
     });
   });
 });

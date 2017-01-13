@@ -217,11 +217,13 @@ There are 2 independent dimensions of testing built in into this starter:
 - suites ([smoketests](http://softwaretestingfundamentals.com/smoke-testing/) suite and in-depth suite)
 
 Code is tested in project on 2 levels:
-- __unit__ (run with [`Karma`](https://karma-runner.github.io/latest/index.html) runner using [`Mocha`](http://mochajs.org/)
-    as testing framework and [`Chai`](http://chaijs.com/) as assertion library) - ensures business of tested
-component or service logic is ok.
-- __end-to-end__ (run with [`Protractor`](https://github.com/angular/protractor), currently with [`Jasmine`](https://jasmine.github.io)
-which is a default) - ensures application running in browser works as intended.
+- __unit__ (run with [`Karma`](https://karma-runner.github.io/latest/index.html)
+runner using [`Jasmine`](https://jasmine.github.io) as testing framework
+and [`jasmine-expect`](https://www.npmjs.com/package/jasmine-expect) as an
+assertion library) - ensures business logic of tested component or service is ok.
+- __end-to-end__ (run with [`Protractor`](https://github.com/angular/protractor),
+with [`Jasmine`](https://jasmine.github.io) which is a default) - ensures
+application running in browser works as intended.
 
 Both those levels are prepared to run multiple suites.
 

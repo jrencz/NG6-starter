@@ -15,14 +15,13 @@ module.exports = {
 
   plugins: [
     'angular',
-    'mocha',
-    'chai-expect'
+    'jasmine',
   ],
 
   env: {
     node: false,
     browser: true,
-    mocha: true,
+    jasmine: true,
     'angular/angular': true,
     'angular/mocks': true
   },
@@ -33,7 +32,7 @@ module.exports = {
       {
         'skipWords': [
           ...commonSpellCheckOptions.skipWords,
-          ...require('./config/spellcheck/skipWords/tests'),
+          ...require('./config/spellcheck/skipWords/tests.json5'),
         ],
       }
     )],

@@ -1,7 +1,5 @@
 import DemosModule from './'
 
-import {expect} from 'chai'
-
 describe('Demos', () => {
   let $rootScope, $state, $location, $componentController, $compile;
 
@@ -20,7 +18,7 @@ describe('Demos', () => {
     it('Demos component should be visible when navigates to /demos', () => {
       $location.url('/demos');
       $rootScope.$digest();
-      expect($state.current.component).to.eq('demos');
+      expect($state.current.component).toBe('demos');
     });
   });
 
@@ -34,7 +32,7 @@ describe('Demos', () => {
     });
 
     it('has a name property', () => { // erase if removing this.name from the controller
-      expect(controller).to.have.property('name');
+      expect(controller).toHaveMember('name');
     });
   });
 
@@ -49,7 +47,7 @@ describe('Demos', () => {
     });
 
     it('has name in template', () => {
-      expect(template.find('h1').html()).to.contain('demos');
+      expect(template.find('h1').html()).toContain('demos');
     });
 
   });

@@ -1,7 +1,5 @@
 import HomeModule from './'
 
-import {expect} from 'chai';
-
 describe('Home', () => {
   let $rootScope, $state, $location, $componentController, $compile;
 
@@ -20,7 +18,7 @@ describe('Home', () => {
     it('default component should be home', () => {
       $location.url('/');
       $rootScope.$digest();
-      expect($state.current.component).to.eq('home');
+      expect($state.current.component).toBe('home');
     });
   });
 
@@ -34,7 +32,7 @@ describe('Home', () => {
     });
 
     it('has a name property', () => { // erase if removing this.name from the controller
-      expect(controller).to.have.property('name');
+      expect(controller).toHaveMember('name');
     });
   });
 
@@ -49,7 +47,7 @@ describe('Home', () => {
     });
 
     it('has name in template', () => {
-      expect(template.find('h1').html()).to.eq('Found in home.html');
+      expect(template.find('h1').html()).toBe('Found in home.html');
     });
 
   });

@@ -1,7 +1,5 @@
 import NavbarModule from './'
 
-import {expect} from 'chai';
-
 describe('Navbar', () => {
   let $rootScope, $state, $location, $componentController, $compile;
 
@@ -29,7 +27,7 @@ describe('Navbar', () => {
     });
 
     it('has a name property', () => { // erase if removing this.name from the controller
-      expect(controller).to.have.property('name');
+      expect(controller).toHaveMember('name');
     });
   });
 
@@ -44,7 +42,7 @@ describe('Navbar', () => {
     });
 
     it('has name in template', () => {
-      expect(template.find('h1').find('a').html()).to.eq('Home');
+      expect(template.find('h1').find('a').html()).toBe('Home');
     });
 
   });

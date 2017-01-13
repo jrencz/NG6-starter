@@ -15,7 +15,10 @@ module.exports = function (config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['mocha', 'chai'],
+    frameworks: [
+      'jasmine',
+      'jasmine-matchers',
+    ],
 
     // list of files/patterns to load in the browser
     files: [{ pattern: suite, watched: false }],
@@ -53,8 +56,8 @@ module.exports = function (config) {
 
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
     reporters: [
-      'mocha',
       'longest',
+      'progress',
     ],
 
     customLaunchers: {

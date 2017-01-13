@@ -3,8 +3,6 @@ import HeroController from './hero.controller';
 import HeroComponent from './hero.component';
 import HeroTemplate from './hero.twig';
 
-import {expect} from 'chai';
-
 describe('Hero', () => {
   let $rootScope, makeController;
 
@@ -24,7 +22,7 @@ describe('Hero', () => {
     // controller specs
     it('has a name property [REMOVE]', () => { // erase if removing this.name from the controller
       let controller = makeController();
-      expect(controller).to.have.property('name');
+      expect(controller).toHaveMember('name');
     });
   });
 
@@ -32,7 +30,7 @@ describe('Hero', () => {
     // template specs
     // tip: use regex to ensure correct bindings are used e.g., {{  }}
     it('has name in template [REMOVE]', () => {
-      expect(HeroTemplate).to.match(/{{\s?\$ctrl\.name\s?}}/g);
+      expect(HeroTemplate).toMatch(/{{\s?\$ctrl\.name\s?}}/g);
     });
   });
 
@@ -41,11 +39,11 @@ describe('Hero', () => {
       let component = HeroComponent;
 
       it('includes the intended template',() => {
-        expect(component.template).to.equal(HeroTemplate);
+        expect(component.template).toBe(HeroTemplate);
       });
 
       it('invokes the right controller', () => {
-        expect(component.controller).to.equal(HeroController);
+        expect(component.controller).toBe(HeroController);
       });
   });
 });
