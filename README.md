@@ -1,4 +1,4 @@
-# Web application starter
+# Web application starter [![Build Status](https://api.travis-ci.org/jrencz/NG6-starter.svg?branch=prepare)](https://travis-ci.org/jrencz/NG6-starter)
 
 Web application starter for single page apps written in [Angular](https://angularjs.org) 1.x using latest JS syntax
 and component-based approach.
