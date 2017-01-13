@@ -64,7 +64,7 @@
     "karma-eslint": "^2.1.0",
     "karma-jasmine": "^1.1.0",
     "karma-jasmine-matchers": "^3.0.1",
-    "karma-longest-reporter": "^1.0.0",
+    "karma-longest-reporter": "github:jrencz/karma-longest-reporter#base-reporter",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^1.8.1",
     "lintspaces": "^0.5.0",
