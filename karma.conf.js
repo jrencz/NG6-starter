@@ -42,15 +42,40 @@ module.exports = function (config) {
         ...commonWebpackPluginsConfig.plugins,
       ],
       module: Object.assign({}, commonWebpackLoadersConfig.module, {
+        preLoaders: [
+          {
+            test: /^((?!spec)(?!e2e).)*.js$/,
+            exclude: [/dist/, /node_modules/],
+            loader: 'babel-istanbul',
+            query: {
+              cacheDirectory: true,
+            },
+          },
+        ],
         loaders: commonWebpackLoadersConfig.module.loaders,
       })
     }),
 
-    webpackServer: {
-      // @see https://webpack.js.org/configuration/watch/#watchoptions
-      watchOptions: {
-        aggregateTimeout: 500,
+    coverageReporter: {
+      dir: 'coverage',
+      reporters: [
+        {type: 'html', subdir: 'html'},
+        {type: 'lcovonly', subdir: '.'},
+        {type: 'text-summary'},
+      ],
+      // Watermarks define a boundaries between 3 classes of coverage: low,
+      // medium and high:
+      // [low-medium, medium-high], percentage
+      // default: [50, 80]
+      watermarks: {
+        statements: [80, 90],
+        branches: [80, 90],
+        functions: [80, 90],
+        lines: [80, 90],
       },
+    },
+
+    webpackServer: {
       noInfo: true // prevent console spamming when running in Karma!
     },
 
@@ -58,6 +83,7 @@ module.exports = function (config) {
     reporters: [
       'longest',
       'progress',
+      'coverage',
     ],
 
     customLaunchers: {

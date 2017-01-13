@@ -237,9 +237,36 @@ _Related commands_:
 - `npm run test:smoke` - runs smoketests once
 - `npm run test:unit` - runs specs
 - `npm run test:unit:smoke` - runs spec smoketests
+- `npm run test:unit:continuous` - re-runs all spec tests continuously, w/ file
+  watching
+- `test:unit:dev` - starts development mode of running tests. It generates
+coverage report and then it starts a local server with it + it does `test:unit:continuous`
+You may wan to use it if you prefer not to [set up your IDE/editor](#coverage-editor-setup)
+to show coverage inline.
 - `npm run test:e2e` - runs end-to-end tests
 - `npm run test:e2e:smoke` - runs end-to-end smoketests
 - `npm maintenance:webdriver-update`
+- `npm maintenance:serve-coverage-report` - starts a local server serving the
+code coverage reports.
+
+### Coverage Editor Setup
+
+#### Web Storm
+
+- go to Run > Edit configurations
+- add new configuration of type `Karma`. Name it
+  - set configuration file to `<path/to/>/karma.conf.js`
+  - set environment variables to `BROWSERSLIST_STATS=./node_modules/stats/stats.json`
+    (this is hopefully a temporary requirement)
+- choose Run > Run '<name you provided>' with Coverage
+- if you wish tests to be run every time you change anything use "Toggle Auto-test"
+but mind that running (and re-running) tests may take a while.
+
+
+#### NetBeans
+
+(unconfirmed: https://blogs.oracle.com/geertjan/entry/karma_istanbul_code_coverage_in)
+Please note that env has to be set up. See WebStorm config.
 
 ## Code generation
 

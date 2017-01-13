@@ -19,9 +19,13 @@ import mocks from 'angular-mocks';
 // Using that regex, we scan within `src/app` and target
 // all files ending with `.spec.js` and trace its path.
 // By passing in true, we permit this process to occur recursively.
-const context = require.context(`./src/app`, true, /\.spec\.js/);
+const context = require.context(`./src/app`, true, /\.spec\.js$/);
 
 // Get all files, for each file, call the context function
 // that will require the file and load it here. Context will
 // loop and require those spec files here.
 context.keys().forEach(context);
+
+const srcContext = require.context('./src/app', true, /^((?!spec)(?!e2e).)*.js$/);
+
+srcContext.keys().forEach(srcContext);
