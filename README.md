@@ -114,7 +114,7 @@ development (and hot-replace modules where possible as you develop).
 
   _Related config files_:
   - [bs-config.js](./bs-config.js)
-  
+
   _Related commands_:
   - `npm run serve`
 
@@ -148,7 +148,7 @@ because some tools (luckily: not very many of them) are available only as gulp p
   - [gulpfile.babel.js](./gulpfile.babel.js)
 
 - [`localdev`](https://github.com/jrencz/localdev) provides a way to facilitate development of both the project and its
-dependencies installed via NPM. 
+dependencies installed via NPM.
 
   _Related config files_:
   - [localdev.config.json](./localdev.config.json)
@@ -248,7 +248,7 @@ _Related config files_:
 - [plopfile.js](./plopfile.js)
 
 _Related commands_:
-- `npm run generate` generator CLI with interactive subject selection 
+- `npm run generate` generator CLI with interactive subject selection
 - `npm run generate:component` interactive generator for a component
 
 

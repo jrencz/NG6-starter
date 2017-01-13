@@ -6,7 +6,7 @@ const sassConfig = require('../../sass.conf.js');
 module.exports = {
   module: {
     loaders: [
-      { test: /\.js$/, include: [/app/], loader: 'ng-annotate!babel' },
+      { test: /\.js$/, exclude: [/dist/, /node_modules/], loader: 'ng-annotate!babel' },
       { test: /\.html$/, loader: 'raw' },
       // Compile static files using twig. This is a static compilation
       { test: /\.twig/, exclude: [/app/], loader: 'twig' },

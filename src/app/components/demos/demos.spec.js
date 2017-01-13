@@ -49,7 +49,7 @@ describe('Demos', () => {
     });
 
     it('has name in template', () => {
-      expect(template.find('h1').html()).to.eq('demos');
+      expect(template.find('h1').html()).to.contain('demos');
     });
 
   });

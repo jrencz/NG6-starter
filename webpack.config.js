@@ -4,10 +4,9 @@ var path    = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var StylelintWebpackPlugin = require('stylelint-webpack-plugin');
-const ComponentExternalContextWebpackPlugin =
-  require('./lib/webpack/componentExternalContext/plugin/ComponentExternalContextWebpackPlugin');
 
 const commonWebpackLoadersConfig = require('./config/webpack/commonLoaders');
+const commonWebpackPluginsConfig = require('./config/webpack/commonPlugins');
 
 const srcPath = require('./config/srcPath');
 
@@ -22,6 +21,7 @@ module.exports = Object.assign({
   //   }
   // },
   plugins: [
+    ... commonWebpackPluginsConfig.plugins,
     // Injects bundles in your index.html instead of wiring all manually.
     // It also adds hash to all injected assets so we don't have problems
     // with cache purging during deployment.
@@ -35,12 +35,6 @@ module.exports = Object.assign({
       files: [
         `${ srcPath }/**/*.scss`,
       ],
-    }),
-
-    new ComponentExternalContextWebpackPlugin({
-      root: srcPath,
-      componentsPattern: '**/*.componentrc',
-      endpointUriTemplate: 'https://gist.githubusercontent.com/jrencz/6bcc5972b2b29575e023ba7f9e1d8876/raw/componentdata.json{?params*}',
     }),
 
     // Automatically move all modules defined outside of application directory to vendor bundle.

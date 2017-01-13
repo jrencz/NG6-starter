@@ -1,4 +1,5 @@
 const commonWebpackLoadersConfig = require('./config/webpack/commonLoaders');
+const commonWebpackPluginsConfig = require('./config/webpack/commonPlugins');
 
 const {
   suite
@@ -6,8 +7,9 @@ const {
   .default('suite', 'spec.bundle.js')
   .argv;
 
+
 module.exports = function (config) {
-  config.set({
+  const configuration = {
     // base path used to resolve all patterns
     basePath: '',
 
@@ -21,21 +23,11 @@ module.exports = function (config) {
     // files to exclude
     exclude: [],
 
-    plugins: [
-      require("karma-chai"),
-      require("karma-longest-reporter"),
-      require("karma-chrome-launcher"),
-      require("karma-mocha"),
-      require("karma-mocha-reporter"),
-      require("karma-sourcemap-loader"),
-      require("karma-webpack")
-    ],
-
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: { [suite]: ['webpack', 'sourcemap'] },
 
-    webpack: Object.assign({
+    webpack: Object.assign({}, commonWebpackLoadersConfig, {
       devtool: 'inline-source-map',
       eslint: {
         cache: true,
@@ -43,7 +35,13 @@ module.exports = function (config) {
         failOnError: true,
         configFile: './.eslintrc-spec.js',
       },
-    }, commonWebpackLoadersConfig),
+      plugins: [
+        ...commonWebpackPluginsConfig.plugins,
+      ],
+      module: Object.assign({}, commonWebpackLoadersConfig.module, {
+        loaders: commonWebpackLoadersConfig.module.loaders,
+      })
+    }),
 
     webpackServer: {
       // @see https://webpack.js.org/configuration/watch/#watchoptions
@@ -58,6 +56,13 @@ module.exports = function (config) {
       'mocha',
       'longest',
     ],
+
+    customLaunchers: {
+      Chrome_travis_ci: {
+        base: 'Chrome',
+        flags: ['--no-sandbox']
+      }
+    },
 
     // web server port
     port: 9876,
@@ -78,5 +83,11 @@ module.exports = function (config) {
 
     // if true, Karma runs tests once and exits
     singleRun: true
-  });
+  };
+
+  if(process.env.TRAVIS) {
+    configuration.browsers = ['Chrome_travis_ci'];
+  }
+
+  config.set(configuration);
 };
