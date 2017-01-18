@@ -1,5 +1,11 @@
+/**
+ *
+ */
 class DemosController {
-  constructor() {
+  /**
+   * @returns {undefined}
+   */
+  $onInit() {
     this.name = 'demos';
   }
 }

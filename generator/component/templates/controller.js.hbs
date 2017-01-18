@@ -1,0 +1,28 @@
+/**
+ *
+ */
+class {{ properCase name }}Controller {
+  /**
+   *
+   */
+  constructor() {
+    'ngInject';
+
+    // Use constructor only to assign DI values to instance.
+    // Component bindings are not assigned to the instance yet.
+  }
+
+  /**
+   * @returns {undefined}
+   */
+  $onInit() {
+    // Component bindings are assigned to the instance at this point (if they
+    // are known at the moment the component is initialized - if binding value
+    // is expected to change check if property is of expected type. If not then
+    // handle it in $onChanges()
+
+    this.name = '{{ camelCase name }}';
+  }
+}
+
+export default {{ properCase name }}Controller;

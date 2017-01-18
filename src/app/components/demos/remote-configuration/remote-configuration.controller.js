@@ -1,7 +1,11 @@
+/**
+ *
+ */
 class RemoteConfigurationController {
-  constructor() {
-    'ngInject';
-
+  /**
+   * @returns {undefined}
+   */
+  $onInit() {
     this.name = 'remoteConfiguration';
   }
 }

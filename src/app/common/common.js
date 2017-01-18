@@ -1,16 +1,16 @@
 import angular from 'angular';
 
-import Navbar from './navbar';
 import Hero from './hero';
-import User from './user';
+import Navbar from './navbar';
 import TestStandaloneComponent from './testStandaloneComponent';
+import User from './user';
 
 const commonModule = angular
-  .module('app.common', [
-    Navbar,
+  .module('n6s.app.common', [
     Hero,
+    Navbar,
+    TestStandaloneComponent,
     User,
-    TestStandaloneComponent
   ])
 ;
 

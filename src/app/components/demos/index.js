@@ -1,33 +1,32 @@
 import angular from 'angular';
-import uiRouter from 'angular-ui-router';
 import demosComponent from './demos.component';
-
-import StandaloneComponent from './standalone-component';
-import LocalVsExternalAdapter from './local-vs-external-adapter'
+import LocalVsExternalAdapter from './local-vs-external-adapter';
 import RemoteConfiguration from './remote-configuration';
 import RemoteConfigurationOfComponents
   from './remote-configuration-of-components';
+import StandaloneComponent from './standalone-component';
+import uiRouter from 'angular-ui-router';
 
 const demosModule = angular
-  .module('demos', [
-    uiRouter,
-    StandaloneComponent,
+  .module('n6s.demos', [
     LocalVsExternalAdapter,
     RemoteConfiguration,
-    RemoteConfigurationOfComponents
+    RemoteConfigurationOfComponents,
+    StandaloneComponent,
+    uiRouter,
   ])
 
-  .config(($stateProvider) => {
-    "ngInject";
+  .config($stateProvider => {
+    'ngInject';
 
     $stateProvider
       .state('demos', {
         url: '/demos',
-        component: 'demos'
+        component: 'n6sDemos',
       });
   })
 
-  .component('demos', demosComponent)
+  .component('n6sDemos', demosComponent)
 ;
 
 export default demosModule.name;

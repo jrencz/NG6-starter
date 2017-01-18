@@ -1,11 +1,11 @@
 {
-  "plugins": [
-    "angular"
+  "extends": [
+    "example-shared/src-angular"
   ],
 
-  "env": {
-    "node": false,
-    "browser": true,
-    "angular/angular": true
+  "rules": {
+    // This rule is broken
+    // See: https://github.com/eslint/eslint/issues/7938
+    "newline-after-var": "off"
   }
 }

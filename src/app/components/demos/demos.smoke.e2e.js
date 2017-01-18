@@ -11,6 +11,6 @@ describe('Demos Route', () => {
   it('should be visible', () => {
 
     // Expect home component to be visible
-    expect(element(by.tagName('demos')).isDisplayed()).toBe(true);
+    expect(element(by.tagName('n6s-demos')).isDisplayed()).toBe(true);
   });
 });

@@ -1,0 +1,97 @@
+import {{ camelCase name }} from './';
+import {{ camelCase name }}Component from './{{ dashCase name }}.component';
+import {{ properCase name }}Controller from './{{ dashCase name }}.controller';
+import {{ camelCase name }}Template from './{{ dashCase name }}.html';
+
+import {
+  element,
+  mock,
+} from 'angular';
+
+const {
+  inject,
+  module,
+} = mock;
+
+const {
+  any,
+  createSpy,
+} = jasmine;
+
+const {
+  beforeEach,
+  describe,
+  expect,
+  it,
+  spyOn,
+} = window;
+
+describe('Component: {{ camelCase name }}', () => {
+  let $rootScope;
+  let $componentController;
+
+  let makeController;
+
+  beforeEach(module({{ camelCase name }}));
+
+  beforeEach(inject((
+    _$rootScope_,
+    _$componentController_
+  ) => {
+    $rootScope = _$rootScope_;
+    $componentController = _$componentController_;
+  }));
+
+  beforeEach(() => {
+    makeController = ({
+      locals = {
+        $element: element(),
+      },
+      bindings,
+    } = {}) => $componentController(
+      '{{ pkg 'config.angularPrefix' }}{{ properCase name }}',
+      locals,
+      bindings
+    );
+  })
+
+  describe('Module', () => {
+    // Top-level specs: i.e., routes, injection, naming
+    it('default component should be {{ pkg 'config.angularPrefix' }}{{ properCase name }}', () => {
+      $location.url(/* fill in the address */);
+      $rootScope.$digest();
+      expect($state.current.component).toBe('{{ pkg 'config.angularPrefix' }}{{ properCase name }}');
+    });
+  });
+
+  describe('Controller', () => {
+    // Controller specs
+
+    // Erase if removing this.name from the controller
+    it('has a name property [REMOVE]', () => {
+      const controller = makeController();
+      expect(controller).toHaveMember('name');
+    });
+  });
+
+  describe('Template', () => {
+    // Template specs
+    // tip: use regex to ensure correct bindings are used e.g., \{{  }}
+    it('has name in template [REMOVE]', () => {
+      expect({{ camelCase name }}Template).toMatch(/\{{\s?\$ctrl\.name\s?}}/g);
+    });
+  });
+
+  describe('Component', () => {
+    // Component/directive specs
+    const component = {{ camelCase name }}Component;
+
+    it('includes the intended template', () => {
+      expect(component.template).toBe({{ camelCase name }}Template);
+    });
+
+    it('invokes the right controller', () => {
+      expect(component.controller).toBe({{ properCase name }}Controller);
+    });
+  });
+});

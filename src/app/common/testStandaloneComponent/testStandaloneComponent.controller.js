@@ -1,6 +1,15 @@
 import TestStandaloneComponent from 'test-standalone-component';
 
+/**
+ *
+ */
 class TestStandaloneComponentController {
+  /**
+   *
+   * @param {$element} $element
+   * @param {$timeout} $timeout
+   * @param {$rootScope} $rootScope
+   */
   constructor(
     $element,
     $timeout,
@@ -25,15 +34,22 @@ class TestStandaloneComponentController {
             $rootScope.$apply(::this.onClicked);
           }
         }
-      }
+      },
     });
   }
 
+  /**
+   * @returns {undefined}
+   */
   $onInit() {
     // This is the api of external component.
     this.wrappedComponentController.render();
   }
 
+  /**
+   * @param {object} change - `name` binding change
+   * @returns {undefined}
+   */
   handleNameChange(change) {
     if (change.isFirstChange()) {
       return;
@@ -42,6 +58,10 @@ class TestStandaloneComponentController {
     this.wrappedComponentController.changeName(change.currentValue);
   }
 
+  /**
+   * @param {object} change - `isRightToLeft` binding change
+   * @returns {undefined}
+   */
   handleIsRightToLeftChangeChange(change) {
     if (change.isFirstChange()) {
       return;
@@ -50,6 +70,10 @@ class TestStandaloneComponentController {
     this.wrappedComponentController.setRTL(change.currentValue);
   }
 
+  /**
+   * @param {object} changes
+   * @returns {undefined}
+   */
   $onChanges(changes) {
     if ('name' in changes) {
       this.handleNameChange(changes.name);

@@ -1,11 +1,11 @@
 import angular from 'angular';
-import Home from './home';
 import Demos from './demos';
+import Home from './home';
 
 const componentModule = angular
-  .module('app.components', [
-    Home,
+  .module('n6s.app.components', [
     Demos,
+    Home,
   ])
 ;
 

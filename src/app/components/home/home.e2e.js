@@ -7,12 +7,11 @@ describe('Home Route', () => {
     browser.get('/');
   });
 
-
   // Home component should be visible
   it('should be visible', () => {
 
     // Expect home component to be visible
-    expect(element(by.tagName('home')).isDisplayed()).toBe(true);
+    expect(element(by.tagName('n6s-home')).isDisplayed()).toBe(true);
   });
 
   // Link to Demos navigates to Demos Component
@@ -24,8 +23,8 @@ describe('Home Route', () => {
       .then(() => {
 
         // Expect Home component to not be present
-        expect(element(by.tagName('home')).isPresent()).toBe(false);
-      })
+        expect(element(by.tagName('n6s-home')).isPresent()).toBe(false);
+      });
   });
 
 });

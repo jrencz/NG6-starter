@@ -7,11 +7,13 @@ const srcPath = require('./config/srcPath');
 const paths = require('./config/paths');
 
 const config = require('./webpack.dev.config');
+
 config.entry.app = [
-  // this modules required to make HRM working
+  // This modules required to make HRM working
   // it responsible for all this webpack magic
   'webpack-hot-middleware/client?reload=true',
-  // application entry point
+
+  // Application entry point here
 ].concat(paths.entry);
 
 const compiler = webpack(config);
@@ -26,10 +28,10 @@ module.exports = {
       stats: {
         colors: colorsSupported,
         chunks: false,
-        modules: false
+        modules: false,
       },
-      publicPath: config.output.publicPath
+      publicPath: config.output.publicPath,
     }),
-    webpackHotMiddleware(compiler)
-  ]
+    webpackHotMiddleware(compiler),
+  ],
 };

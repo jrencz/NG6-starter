@@ -1,30 +1,27 @@
 import angular from 'angular';
-import uiRouter from 'angular-ui-router';
 import component from './standalone-component.component';
-
 import Demo from '../../../common/demo';
 import TestStandaloneComponent from '../../../common/testStandaloneComponent';
+import uiRouter from 'angular-ui-router';
 
 const standaloneComponentModule = angular
-  .module('ng6Starter.demos.standaloneComponent', [
+  .module('n6s.demos.standaloneComponent', [
     Demo,
     TestStandaloneComponent,
     uiRouter,
   ])
 
-  .config((
-    $stateProvider
-  ) => {
+  .config($stateProvider => {
     'ngInject';
 
     $stateProvider
       .state('demos.standaloneComponent', {
         url: '/standalone-component',
-        component: 'standaloneComponent'
+        component: 'n6sStandaloneComponent',
       });
   })
 
-  .component('standaloneComponent', component)
+  .component('n6sStandaloneComponent', component)
 ;
 
 export default standaloneComponentModule.name;

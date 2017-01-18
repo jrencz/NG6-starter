@@ -1,5 +1,11 @@
+/**
+ *
+ */
 class NavbarController {
-  constructor() {
+  /**
+   * @returns {undefined}
+   */
+  $onInit() {
     this.name = 'navbar';
   }
 }

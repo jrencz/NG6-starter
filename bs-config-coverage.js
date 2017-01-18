@@ -1,9 +1,8 @@
 module.exports = {
   port: 3456,
   open: true,
-  // ui: false,
-  server: "./coverage/html",
+  server: './coverage/html',
   files: [
-    "./coverage/html/index.html",
+    './coverage/html/index.html',
   ],
 };

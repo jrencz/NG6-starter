@@ -1,13 +1,11 @@
 import angular from 'angular';
-import uiRouter from 'angular-ui-router';
 import heroComponent from './hero.component';
 
 const heroModule = angular
-  .module('hero', [
-    uiRouter
+  .module('n6s.hero', [
   ])
 
-  .component('hero', heroComponent)
+  .component('n6sHero', heroComponent)
 ;
 
 export default heroModule.name;

@@ -1,49 +1,89 @@
-import NavbarModule from './'
+import NavbarModule from './';
+
+import {
+  element,
+  mock,
+} from 'angular';
+
+const {
+  inject,
+  module,
+} = mock;
+
+const {
+  beforeEach,
+  describe,
+  expect,
+  it,
+} = window;
 
 describe('Navbar', () => {
-  let $rootScope, $state, $location, $componentController, $compile;
+  let $compile;
+  let $componentController;
+  let $rootScope;
 
-  beforeEach(window.module(NavbarModule));
+  let makeController;
 
-  beforeEach(inject(($injector) => {
-    $rootScope = $injector.get('$rootScope');
-    $componentController = $injector.get('$componentController');
-    $state = $injector.get('$state');
-    $location = $injector.get('$location');
-    $compile = $injector.get('$compile');
+  beforeEach(module(NavbarModule));
+
+  beforeEach(inject((
+    _$compile_,
+    _$componentController_,
+    _$rootScope_,
+  ) => {
+    $compile = _$compile_;
+    $componentController = _$componentController_;
+    $rootScope = _$rootScope_;
   }));
 
+  beforeEach(() => {
+    makeController = ({
+      locals = {
+        $element: element(),
+      },
+      bindings,
+    } = {}) => $componentController(
+      'n6sNavbar',
+      locals,
+      bindings
+    );
+  });
+
   describe('Module', () => {
-    // top-level specs: i.e., routes, injection, naming
+    // Top-level specs: i.e., routes, injection, naming
   });
 
   describe('Controller', () => {
-    // controller specs
+    // Controller specs
     let controller;
+
     beforeEach(() => {
-      controller = $componentController('navbar', {
-        $scope: $rootScope.$new()
-      });
+      controller = makeController();
     });
 
-    it('has a name property', () => { // erase if removing this.name from the controller
+    // Erase if removing this.name from the controller
+    it('has name property after component is initialized', () => {
+      expect(controller).not.toHaveMember('name');
+
+      controller.$onInit();
+
       expect(controller).toHaveMember('name');
     });
   });
 
   describe('View', () => {
-    // view layer specs.
-    let scope, template;
+    // View layer specs.
+    let scope;
+    let template;
 
     beforeEach(() => {
       scope = $rootScope.$new();
-      template = $compile('<navbar></navbar>')(scope);
-      scope.$apply();
+      template = $compile('<n6s-navbar></n6s-navbar>')(scope);
+      scope.$digest();
     });
 
-    it('has name in template', () => {
-      expect(template.find('h1').find('a').html()).toBe('Home');
+    it('has home link in template', () => {
+      expect(template.find('h1').find('a')).toHaveText('Home');
     });
-
   });
 });

@@ -1,27 +1,29 @@
 import angular from 'angular';
-import uiRouter from 'angular-ui-router';
 import component from './{{ dashCase name }}.component';
+{{#if routable}}
+import uiRouter from 'angular-ui-router';
+{{/if}}
 
 const {{ camelCase name }}Module = angular
-  .module('{{ camelCase (pkg 'name') }}.{{ camelCase name }}', [
+  .module('{{ pkg 'config.angularPrefix' }}.{{ camelCase name }}', [
+{{#if routable}}
     uiRouter,
+{{/if}}
   ])
 {{#if routable}}
 
-  .config((
-    $stateProvider
-  ) => {
+  .config($stateProvider => {
     'ngInject';
 
     $stateProvider
       .state('{{ camelCase name }}', {
         url: '/{{ dashCase name }}',
-        component: '{{ camelCase name }}'
+        component: '{{ pkg 'config.angularPrefix' }}{{ properCase name }}',
       });
   })
 {{/if}}
 
-  .component('{{ camelCase name }}', component)
+  .component('{{ pkg 'config.angularPrefix' }}{{ properCase name }}', component)
 ;
 
 export default {{ camelCase name }}Module.name;

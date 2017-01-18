@@ -1,5 +1,3 @@
-'use strict';
-
 const {spawn} = require('child_process');
 
 const srcPath = require('./config/srcPath');
@@ -7,7 +5,10 @@ const srcPath = require('./config/srcPath');
 let server;
 
 exports.config = {
-  baseUrl: `http://localhost:${ process.env.PORT || process.env.npm_package_config_port }`,
+  baseUrl: `http://localhost:${
+    process.env.PORT ||
+    process.env.npm_package_config_port
+  }`,
   specs: [
     `${ srcPath }/**/**.e2e.js`,
   ],
@@ -34,6 +35,7 @@ exports.config = {
     server.stdout.pipe(process.stdout);
     server.stdout.on('data', data => {
       const dataString = data.toString();
+
       if (dataString.includes('Module build failed:')) {
         server.kill();
         reject();

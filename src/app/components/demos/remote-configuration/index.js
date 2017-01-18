@@ -1,28 +1,25 @@
 import angular from 'angular';
-import uiRouter from 'angular-ui-router';
 import component from './remote-configuration.component';
-
 import Demo from '../../../common/demo';
+import uiRouter from 'angular-ui-router';
 
 const remoteConfigurationModule = angular
-  .module('ng6Starter.demos.remoteConfiguration', [
-    uiRouter,
+  .module('n6s.demos.remoteConfiguration', [
     Demo,
+    uiRouter,
   ])
 
-  .config((
-    $stateProvider
-  ) => {
+  .config($stateProvider => {
     'ngInject';
 
     $stateProvider
       .state('demos.remoteConfiguration', {
         url: '/remote-configuration',
-        component: 'remoteConfiguration'
+        component: 'n6sRemoteConfiguration',
       });
   })
 
-  .component('remoteConfiguration', component)
+  .component('n6sRemoteConfiguration', component)
 ;
 
 export default remoteConfigurationModule.name;

@@ -1,11 +1,12 @@
-import template from './demos.twig';
 import controller from './demos.controller';
+import template from './demos.twig';
+
 import './demos.scss';
 
 const demosComponent = {
   bindings: {},
   template,
-  controller
+  controller,
 };
 
 export default demosComponent;

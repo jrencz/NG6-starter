@@ -1,5 +1,11 @@
+/**
+ *
+ */
 class HomeController {
-  constructor() {
+  /**
+   * @returns {undefined}
+   */
+  $onInit() {
     this.name = 'home';
   }
 }

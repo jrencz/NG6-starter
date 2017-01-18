@@ -1,5 +1,6 @@
 import controller from './testStandaloneComponent.controller';
-import './testStandaloneComponent.scss'
+
+import './testStandaloneComponent.scss';
 
 const testStandaloneComponent = {
   bindings: {
@@ -8,7 +9,7 @@ const testStandaloneComponent = {
     onClicked: '&',
     delayedOnClicked: '<',
   },
-  controller
+  controller,
 };
 
 export default testStandaloneComponent;

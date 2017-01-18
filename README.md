@@ -171,9 +171,9 @@ dependencies installed via NPM.
 - [`ESLint`](http://eslint.org) takes care of JS code quality
 
   _Related config files_:
-  - [ESLint config for authored code](./.eslintrc.js)
-  - [ESLint config for authored specs](./.eslintrc-spec.js)
-  - [ESLint config for authored end-to-end tests](./.eslintrc-e2e.js)
+  - [ESLint config for authored code](./.eslintrc.json)
+  - [ESLint config for authored specs](./.eslintrc-spec.json)
+  - [ESLint config for authored end-to-end tests](./.eslintrc-e2e.json)
   - [.eslintignore](./.eslintignore)
 
   _Related commands_:

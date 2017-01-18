@@ -1,12 +1,12 @@
-import template from './standalone-component.twig';
 import controller from './standalone-component.controller';
+import template from './standalone-component.twig';
 
 import './standalone-component.scss';
 
 const component = {
   bindings: {},
   template,
-  controller
+  controller,
 };
 
 export default component;

@@ -1,25 +1,25 @@
 import angular from 'angular';
-import uiRouter from 'angular-ui-router';
 import homeComponent from './home.component';
+import uiRouter from 'angular-ui-router';
 
 const homeModule = angular
-  .module('home', [
-    uiRouter
+  .module('n6s.home', [
+    uiRouter,
   ])
 
   .config(($stateProvider, $urlRouterProvider) => {
-    "ngInject";
+    'ngInject';
 
     $urlRouterProvider.otherwise('/');
 
     $stateProvider
       .state('home', {
         url: '/',
-        component: 'home'
+        component: 'n6sHome',
       });
   })
 
-  .component('home', homeComponent)
+  .component('n6sHome', homeComponent)
 ;
 
 export default homeModule.name;

@@ -1,7 +1,7 @@
 <section>
   <h2>Standalone component demo</h2>
 
-  <demo>
+  <n6s-demo>
     <description-pane>
       <p>
         This demos shows that external, framework-agnostic components can be
@@ -89,10 +89,10 @@
         the <strong>component</strong> it wraps.
       </p>
 
-      <test-standalone-component
+      <n6s-test-standalone-component
         class="demos-component-adapter"
         name="$ctrl.inputValue"
-        on-clicked="$ctrl.externalComponentClicked()"></test-standalone-component>
+        on-clicked="$ctrl.externalComponentClicked()"></n6s-test-standalone-component>
 
       <p>
         See <a ui-sref="^.localVsExternalAdapter">local vs external adapter</a>
@@ -100,5 +100,5 @@
       </p>
 
     </demo-pane>
-  </demo>
+  </n6s-demo>
 </section>

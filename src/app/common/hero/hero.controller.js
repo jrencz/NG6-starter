@@ -1,5 +1,11 @@
+/**
+ *
+ */
 class HeroController {
-  constructor() {
+  /**
+   * @returns {undefined}
+   */
+  $onInit() {
     this.name = 'hero';
   }
 }

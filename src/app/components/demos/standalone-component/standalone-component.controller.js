@@ -1,4 +1,10 @@
+/**
+ *
+ */
 class StandaloneComponentController {
+  /**
+   *
+   */
   constructor() {
     'ngInject';
 
@@ -6,6 +12,9 @@ class StandaloneComponentController {
     this.defaultValue = 'default value of the input field';
   }
 
+  /**
+   * @returns {undefined}
+   */
   externalComponentClicked() {
     this.inputValue = this.defaultValue;
   }

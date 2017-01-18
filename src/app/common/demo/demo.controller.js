@@ -1,7 +1,11 @@
+/**
+ *
+ */
 class DemoController {
-  constructor() {
-    'ngInject';
-
+  /**
+   * @returns {undefined}
+   */
+  $onInit() {
     this.name = 'demo';
   }
 }

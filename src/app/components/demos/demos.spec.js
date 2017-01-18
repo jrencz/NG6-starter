@@ -1,49 +1,96 @@
-import DemosModule from './'
+import DemosModule from './';
 
-describe('Demos', () => {
-  let $rootScope, $state, $location, $componentController, $compile;
+import {
+  element,
+  mock,
+} from 'angular';
 
-  beforeEach(window.module(DemosModule));
+const {
+  inject,
+  module,
+} = mock;
 
-  beforeEach(inject(($injector) => {
-    $rootScope = $injector.get('$rootScope');
-    $componentController = $injector.get('$componentController');
-    $state = $injector.get('$state');
-    $location = $injector.get('$location');
-    $compile = $injector.get('$compile');
+const {
+  beforeEach,
+  describe,
+  expect,
+  it,
+} = window;
+
+describe('Component: Demos', () => {
+  let $compile;
+  let $componentController;
+  let $location;
+  let $rootScope;
+  let $state;
+
+  let makeController;
+
+  beforeEach(module(DemosModule));
+
+  beforeEach(inject((
+    _$compile_,
+    _$componentController_,
+    _$location_,
+    _$rootScope_,
+    _$state_,
+  ) => {
+    $compile = _$compile_;
+    $componentController = _$componentController_;
+    $location = _$location_;
+    $rootScope = _$rootScope_;
+    $state = _$state_;
   }));
 
+  beforeEach(() => {
+    makeController = ({
+      locals = {
+        $element: element(),
+      },
+      bindings,
+    } = {}) => $componentController(
+      'n6sDemos',
+      locals,
+      bindings
+    );
+  });
+
   describe('Module', () => {
-    // top-level specs: i.e., routes, injection, naming
-    it('Demos component should be visible when navigates to /demos', () => {
+    // Top-level specs: i.e., routes, injection, naming
+    it('default component should be n6sDemos', () => {
       $location.url('/demos');
       $rootScope.$digest();
-      expect($state.current.component).toBe('demos');
+      expect($state.current.component).toBe('n6sDemos');
     });
   });
 
   describe('Controller', () => {
-    // controller specs
+    // Controller specs
     let controller;
+
     beforeEach(() => {
-      controller = $componentController('demos', {
-        $scope: $rootScope.$new()
-      });
+      controller = makeController();
     });
 
-    it('has a name property', () => { // erase if removing this.name from the controller
+    // Erase if removing this.name from the controller
+    it('has name property after component is initialized', () => {
+      expect(controller).not.toHaveMember('name');
+
+      controller.$onInit();
+
       expect(controller).toHaveMember('name');
     });
   });
 
   describe('View', () => {
-    // view layer specs.
-    let scope, template;
+    // View layer specs.
+    let scope;
+    let template;
 
     beforeEach(() => {
       scope = $rootScope.$new();
-      template = $compile('<demos></demos>')(scope);
-      scope.$apply();
+      template = $compile('<n6s-demos></n6s-demos>')(scope);
+      scope.$digest();
     });
 
     it('has name in template', () => {

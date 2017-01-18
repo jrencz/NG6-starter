@@ -1,7 +1,7 @@
 <section>
   <h2>Local VS external component adapter demo</h2>
 
-  <demo>
+  <n6s-demo>
     <description-pane>
       <p>
         This demos shows that external, framework-agnostic components can be
@@ -26,10 +26,10 @@
 
       <h4>Component adapter defined in this project:</h4>
 
-      <test-standalone-component
+      <n6s-test-standalone-component
         class="demos-component-adapter"
         name="$ctrl.inputValue"
-        on-clicked="$ctrl.externalComponentClicked()"></test-standalone-component>
+        on-clicked="$ctrl.externalComponentClicked()"></n6s-test-standalone-component>
 
       <h4>Component adapter defined as external project:</h4>
 
@@ -39,5 +39,5 @@
         on-clicked="$ctrl.externalComponentClicked()"></test-standalone-component-adapter>
 
     </demo-pane>
-  </demo>
+  </n6s-demo>
 </section>

@@ -1,32 +1,29 @@
 import angular from 'angular';
-import uiRouter from 'angular-ui-router';
 import component from './local-vs-external-adapter.component';
-
 import Demo from '../../../common/demo';
 import TestStandaloneComponent from '../../../common/testStandaloneComponent';
 import TestStandaloneComponentAdapter from 'standalone-component-ng1-adapter';
+import uiRouter from 'angular-ui-router';
 
 const localVsExternalAdapterModule = angular
-  .module('ng6Starter.demos.localVsExternalAdapter', [
+  .module('n6s.demos.localVsExternalAdapter', [
     Demo,
     TestStandaloneComponent,
     TestStandaloneComponentAdapter,
     uiRouter,
   ])
 
-  .config((
-    $stateProvider
-  ) => {
+  .config($stateProvider => {
     'ngInject';
 
     $stateProvider
       .state('demos.localVsExternalAdapter', {
         url: '/local-vs-external-adapter',
-        component: 'localVsExternalAdapter'
+        component: 'n6sLocalVsExternalAdapter',
       });
   })
 
-  .component('localVsExternalAdapter', component)
+  .component('n6sLocalVsExternalAdapter', component)
 ;
 
 export default localVsExternalAdapterModule.name;

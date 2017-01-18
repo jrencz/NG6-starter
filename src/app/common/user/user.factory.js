@@ -1,15 +1,16 @@
 const UserFactory = function () {
+  'ngInject';
+
   const user = {};
 
-  const getUser = () => {
-    return user;
-  };
+  const getUser = () => user;
 
-  const isSignedIn = () => {
-    return user.isSignedIn;
-  };
+  const isSignedIn = () => user.isSignedIn;
 
-  return { getUser, isSignedIn };
+  return {
+    getUser,
+    isSignedIn,
+  };
 };
 
 export default UserFactory;

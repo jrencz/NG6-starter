@@ -1,33 +1,71 @@
-import HeroModule from './'
-import HeroController from './hero.controller';
 import HeroComponent from './hero.component';
+import HeroController from './hero.controller';
+import HeroModule from './';
 import HeroTemplate from './hero.twig';
 
-describe('Hero', () => {
-  let $rootScope, makeController;
+import {
+  element,
+  mock,
+} from 'angular';
 
-  beforeEach(window.module(HeroModule));
-  beforeEach(inject((_$rootScope_) => {
-    $rootScope = _$rootScope_;
-    makeController = () => {
-      return new HeroController();
-    };
+const {
+  inject,
+  module,
+} = mock;
+
+const {
+  beforeEach,
+  describe,
+  expect,
+  it,
+} = window;
+
+describe('Component: Hero', () => {
+  let $componentController;
+
+  let makeController;
+
+  beforeEach(module(HeroModule));
+  beforeEach(inject(_$componentController_ => {
+    $componentController = _$componentController_;
   }));
+  beforeEach(() => {
+    makeController = ({
+      locals = {
+        $element: element(),
+      },
+      bindings,
+    } = {}) => $componentController(
+      'n6sHero',
+      locals,
+      bindings
+    );
+  });
 
   describe('Module', () => {
-    // top-level specs: i.e., routes, injection, naming
+    // Top-level specs: i.e., routes, injection, naming
   });
 
   describe('Controller', () => {
-    // controller specs
-    it('has a name property [REMOVE]', () => { // erase if removing this.name from the controller
-      let controller = makeController();
+    // Controller specs
+    let controller;
+
+    beforeEach(() => {
+      controller = makeController();
+    });
+
+    // Erase if removing this.name from the controller
+    it('has name property after component is initialized', () => {
+      expect(controller).not.toHaveMember('name');
+
+      controller.$onInit();
+
       expect(controller).toHaveMember('name');
     });
   });
 
   describe('Template', () => {
-    // template specs
+    // Template specs
     // tip: use regex to ensure correct bindings are used e.g., {{  }}
     it('has name in template [REMOVE]', () => {
       expect(HeroTemplate).toMatch(/{{\s?\$ctrl\.name\s?}}/g);
@@ -35,15 +73,15 @@ describe('Hero', () => {
   });
 
   describe('Component', () => {
-      // component/directive specs
-      let component = HeroComponent;
+    // Component/directive specs
+    const component = HeroComponent;
 
-      it('includes the intended template',() => {
-        expect(component.template).toBe(HeroTemplate);
-      });
+    it('includes the intended template', () => {
+      expect(component.template).toBe(HeroTemplate);
+    });
 
-      it('invokes the right controller', () => {
-        expect(component.controller).toBe(HeroController);
-      });
+    it('invokes the right controller', () => {
+      expect(component.controller).toBe(HeroController);
+    });
   });
 });

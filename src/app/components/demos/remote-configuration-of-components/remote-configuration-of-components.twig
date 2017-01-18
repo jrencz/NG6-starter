@@ -3,7 +3,7 @@
   ng-init="$ctrl.localIsRTL = {{ demos.testStandaloneComponentConfig.isRTL ? 'true' : 'false' }};">
   <h2>External component remote & local configuration demos</h2>
 
-  <demo>
+  <n6s-demo>
     <description-pane>
 
       <p>
@@ -95,13 +95,13 @@
       <input type="text" ng-model="$ctrl.inputValue">
 
       <p>Interact and/or observe external component:</p>
-      <test-standalone-component
+      <n6s-test-standalone-component
         class="demos-component-adapter"
         is-right-to-left="$ctrl.localIsRTL"
         delayed-on-clicked="$ctrl.standaloneComponentAdapterDelayedOnClicked"
         name="$ctrl.inputValue"
-        on-clicked="$ctrl.externalComponentClicked()"></test-standalone-component>
+        on-clicked="$ctrl.externalComponentClicked()"></n6s-test-standalone-component>
     </demo-pane>
-  </demo>
+  </n6s-demo>
 
 </section>

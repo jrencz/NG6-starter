@@ -1,15 +1,15 @@
 @import "common/common";
 
-[ng-app="app"] {
+[ng-app="n6s.app"] {
   display: flex;
   min-height: 100vh;
 
-  app {
+  n6s-app {
     flex: 1;
   }
 }
 
-app {
+n6s-app {
   display: flex;
 
   .appContainer {

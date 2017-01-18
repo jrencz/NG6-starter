@@ -1,5 +1,5 @@
-import template from './demo.html';
 import controller from './demo.controller';
+import template from './demo.html';
 
 import './demo.scss';
 
@@ -10,7 +10,7 @@ const component = {
     descriptionPane: 'descriptionPane',
     demoPane: 'demoPane',
   },
-  controller
+  controller,
 };
 
 export default component;

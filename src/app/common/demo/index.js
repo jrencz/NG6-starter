@@ -2,7 +2,7 @@ import angular from 'angular';
 import component from './demo.component';
 
 const demoModule = angular
-  .module('ng6Starter.demo', [
+  .module('n6s.demo', [
   ])
 
   .component('demo', component)

@@ -1,11 +1,12 @@
-import template from './hero.twig';
 import controller from './hero.controller';
+import template from './hero.twig';
+
 import './hero.scss';
 
 const heroComponent = {
   bindings: {},
   template,
-  controller
+  controller,
 };
 
 export default heroComponent;
