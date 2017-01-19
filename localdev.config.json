@@ -2,5 +2,6 @@
   "test-theme": "../test-documentcss",
   "standalone-component-ng1-adapter": "../standalone-component-ng1-adapter",
   "eslint-config-example-shared": "../eslint-config-example-shared",
+  "stylelint-config-example-shared": "../stylelint-config-example-shared",
   "test-standalone-component": "../webpack-library-starter"
 }

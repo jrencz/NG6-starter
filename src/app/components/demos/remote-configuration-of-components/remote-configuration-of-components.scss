@@ -1,3 +1,5 @@
+@import '../../../common/variables';
+
 n6s-remote-configuration-of-components {
   display: block;
 
@@ -5,13 +7,13 @@ n6s-remote-configuration-of-components {
     border-collapse: collapse;
 
     th {
-      background: rgba(black, 0.2);
+      background: rgba($black, 0.2);
     }
 
     td,
     th {
-      border: 1px solid black;
       padding: 0.5em 1ex;
+      border: 1px solid $black;
     }
   }
 }

@@ -1,12 +1,12 @@
-@import '../common';
+@import '../variables';
 
 n6s-hero {
   display: block;
 }
 
 .hero {
-  background-color: $darkBgColor;
   height: 3rem;
   padding: 3rem;
-  color: $lightTextColor;
+  background-color: $dark-bg-color;
+  color: $light-text-color;
 }

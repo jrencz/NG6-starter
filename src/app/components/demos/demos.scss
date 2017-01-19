@@ -1,3 +1,5 @@
+@import '../../common/variables';
+
 n6s-demos {
   display: block;
 
@@ -5,11 +7,11 @@ n6s-demos {
     padding: 1em 10px;
   }
 
-  input[type="text"] {
+  input[type='text'] {
     margin: 1em 0;
   }
 
   .demos-component-adapter {
-    border: 1px solid black;
+    border: 1px solid $black;
   }
 }

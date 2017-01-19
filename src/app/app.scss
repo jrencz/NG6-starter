@@ -1,6 +1,7 @@
-@import "common/common";
+@import 'common/variables';
+@import 'common/common';
 
-[ng-app="n6s.app"] {
+[ng-app='n6s.app'] {
   display: flex;
   min-height: 100vh;
 
@@ -12,14 +13,15 @@
 n6s-app {
   display: flex;
 
-  .appContainer {
+  .app-container {
+    display: flex;
     flex: 1;
   }
 }
 
-.appContainer {
-  height: 100%;
+.app-container {
   max-width: 1224px;
+  height: 100%;
   margin: 0 auto;
-  background-color: $bgColor;
+  background-color: $bg-color;
 }

@@ -1,9 +1,9 @@
-@import '../common';
+@import '../variables';
 
 .navbar {
   height: 6.5rem;
-  background-color: $primaryColor;
   padding: 1rem;
+  background-color: $primary-color;
 
   .nav-links,
   .logo {
@@ -11,12 +11,12 @@
   }
 
   .logo {
-    color: $lightTextColor;
     margin-right: 50%;
+    color: $light-text-color;
   }
 
   .nav-links span {
-    color: $lightTextColor;
+    color: $light-text-color;
     font-size: 1.6rem;
   }
 }
