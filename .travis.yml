@@ -4,6 +4,13 @@ node_js:
   - '6'
   - '7'
 
+cache:
+  directories:
+    - node_modules
+
+before_install:
+  - npm prune
+
 sudo: required
 dist: trusty
 
