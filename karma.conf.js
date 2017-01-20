@@ -85,17 +85,39 @@ module.exports = function (config) {
 
     // Available reporters: https://npmjs.org/browse/keyword/karma-reporter
     reporters: [
+      'BrowserStack',
       'longest',
       'progress',
       'coverage',
     ],
 
     customLaunchers: {
+      BS_Chrome: {
+        browser_version: '54.0',
+        os: 'Windows',
+        os_version: '10',
+
+        base: 'BrowserStack',
+        browser: 'Chrome',
+      },
       Chrome_travis_ci: {
         base: 'Chrome',
         flags: ['--no-sandbox'],
       },
     },
+
+    browserStack: {
+      // Those are defaults. They are repeated for documentation purposes.
+      username: process.env.BROWSER_STACK_USERNAME,
+      accessKey: process.env.BROWSER_STACK_ACCESS_KEY,
+    },
+    browserDisconnectTimeout: 10000,
+    browserDisconnectTolerance: 3,
+
+    // 30s seems to be a limit we shouldn't go below.
+    // 60s seems to be safe (builds are stable) but in case BS is overloaded
+    // builds will take longer.
+    browserNoActivityTimeout: 60000,
 
     // Web server port
     port: 9876,
@@ -113,7 +135,7 @@ module.exports = function (config) {
 
     // Start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: ['BS_Chrome'],
 
     // If true, Karma runs tests once and exits
     singleRun: true,
